@@ -1,7 +1,8 @@
-import { Card, CardBody, CardFooter, CardTitle } from 'react-bootstrap';
+import { Button, Card, CardBody, CardFooter, CardTitle } from 'react-bootstrap';
 import { FaRegClock, FaRegHeart, FaRegStar, FaStar, FaStarHalfAlt, FaTable } from 'react-icons/fa';
 const CourseCard = ({
-  course
+  course,
+  onAddToMyCourses
 }) => {
   const {
     image,
@@ -52,6 +53,11 @@ const CourseCard = ({
             <FaTable className="text-orange me-2" />
             {lectures} lectures
           </span>
+        </div>
+        <div className="d-grid mt-3">
+          <Button variant="primary" onClick={onAddToMyCourses} className="mb-0">
+            Add to My Courses
+          </Button>
         </div>
       </CardFooter>
     </Card>;

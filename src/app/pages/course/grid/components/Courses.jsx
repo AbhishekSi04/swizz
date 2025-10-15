@@ -5,9 +5,9 @@ import Pagination from './Pagination';
 import CourseFilter from './CourseFilter';
 import useToggle from '@/hooks/useToggle';
 import useViewPort from '@/hooks/useViewPort';
-import { useFetchData } from '@/hooks/useFetchData';
-import { getAllCourses } from '@/helpers/data';
 import CourseCard from './CourseCard';
+import { useEffect, useMemo, useState } from 'react';
+import httpClient from '@/helpers/httpClient';
 const Courses = () => {
   const {
     isTrue,
@@ -16,7 +16,42 @@ const Courses = () => {
   const {
     width
   } = useViewPort();
-  const allCourses = useFetchData(getAllCourses);
+  const [loading, setLoading] = useState(false);
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await httpClient.get('/courses');
+        const list = Array.isArray(res.data) ? res.data : (res.data?.data || []);
+        const mapped = list.map((c) => ({
+          _id: c._id || c.id,
+          image: c.thumbnailUrl || c.image || '/logo.svg',
+          title: c.title || 'Untitled course',
+          description: c.shortDescription || c.description || '',
+          rating: { star: Number(c.rating || 0) },
+          duration: c.durationText || c.duration || '—',
+          lectures: (c.lessons || []).length || c.lectures || 0,
+          badge: { text: c.category || 'Course', class: 'text-success' },
+        }));
+        setCourses(mapped);
+      } catch (e) {
+        setCourses([]);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  const handleAddToMyCourses = async (courseId) => {
+    try {
+      await httpClient.post('/students/me/enrollments', { courseId });
+      // no payment flow; optionally update UI or toast
+    } catch (e) {
+      // swallow for now; integrate notifications later
+    }
+  };
   return <section className="py-5">
       <Container>
         <Row>
@@ -50,9 +85,11 @@ const Courses = () => {
               </Col>
             </Row>
             <Row className="g-4">
-              {allCourses?.slice(0, 9)?.map((course, idx) => <Col sm={6} xl={4} key={idx}>
-                  <CourseCard course={course} />
-                </Col>)}
+              {(loading ? [] : courses)?.slice(0, 9)?.map((course) => (
+                <Col sm={6} xl={4} key={course._id}>
+                  <CourseCard course={course} onAddToMyCourses={() => handleAddToMyCourses(course._id)} />
+                </Col>
+              ))}
             </Row>
             <Col xs={12}>
               <Pagination />

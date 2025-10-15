@@ -1,14 +1,82 @@
-import courses1 from '@/assets/images/courses/4by3/01.jpg';
-import courses2 from '@/assets/images/courses/4by3/02.jpg';
-import courses3 from '@/assets/images/courses/4by3/03.jpg';
-import courses5 from '@/assets/images/courses/4by3/05.jpg';
-import courses8 from '@/assets/images/courses/4by3/08.jpg';
 import ChoicesFormInput from '@/components/form/ChoicesFormInput';
-import { Button, Card, CardBody, CardHeader, Col, Row } from 'react-bootstrap';
+import { Button, Card, CardBody, CardHeader, Col, ProgressBar, Row } from 'react-bootstrap';
 import { BsArrowRepeat, BsCheck, BsPlayCircle } from 'react-icons/bs';
 import { FaAngleLeft, FaAngleRight, FaSearch } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import httpClient from '@/helpers/httpClient';
+
+const RowItem = ({ image, name, totalLectures, completedLectures }) => {
+  const percentage = totalLectures ? Math.trunc((completedLectures * 100) / totalLectures) : 0;
+  return (
+    <tr>
+      <td>
+        <div className="d-flex align-items-center">
+          <div className="w-100px">
+            <img src={image} className="rounded" alt="courses" />
+          </div>
+          <div className="mb-0 ms-2">
+            <h6>
+              <a href="#">{name}</a>
+            </h6>
+            <div className="overflow-hidden">
+              <h6 className="mb-0 text-end">{percentage}%</h6>
+              <ProgressBar now={percentage} className="progress progress-sm bg-opacity-10 aos" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{ width: '100%' }} aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100} />
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>{totalLectures}</td>
+      <td>{completedLectures}</td>
+      <td>
+        {percentage === 100 ? (
+          <>
+            <button className="btn btn-sm btn-success me-1 mb-1 mb-x;-0 disabled">
+              <BsCheck className="me-1 icons-center" />
+              Complete
+            </button>
+            &nbsp;
+            <Button variant="light" size="sm" className="me-1">
+              <BsArrowRepeat className="me-1 icons-center" />
+              Restart
+            </Button>
+          </>
+        ) : (
+          <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0 icons-center">
+            <BsPlayCircle className="me-1 " />
+            Continue
+          </Button>
+        )}
+      </td>
+    </tr>
+  );
+};
+
 const CoursesList = () => {
-  return <Card className="bg-transparent border rounded-3">
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await httpClient.get('/students/me/enrollments');
+        const mapped = (res.data || []).map((en) => {
+          const course = en.course || {};
+          const totalLectures = (course.lessons || []).length || 0;
+          const completedLectures = totalLectures ? Array.from(Object.values(en.progressByLessonId || {})).filter(Boolean).length : 0;
+          return {
+            name: course.title || 'Untitled course',
+            image: course.thumbnailUrl || course.image || '/logo.svg',
+            totalLectures,
+            completedLectures,
+          };
+        });
+        setItems(mapped);
+      } catch (e) {
+        setItems([]);
+      }
+    })();
+  }, []);
+
+  return (
+    <Card className="bg-transparent border rounded-3">
       <CardHeader className="bg-transparent border-bottom">
         <h3 className="mb-0">My Courses List</h3>
       </CardHeader>
@@ -38,175 +106,16 @@ const CoursesList = () => {
           <table className="table table-dark-gray align-middle p-4 mb-0 table-hover">
             <thead>
               <tr>
-                <th scope="col" className="border-0 rounded-start">
-                  Course Title
-                </th>
-                <th scope="col" className="border-0">
-                  Total Lectures
-                </th>
-                <th scope="col" className="border-0">
-                  Completed Lecture
-                </th>
-                <th scope="col" className="border-0 rounded-end">
-                  Action
-                </th>
+                <th scope="col" className="border-0 rounded-start">Course Title</th>
+                <th scope="col" className="border-0">Total Lectures</th>
+                <th scope="col" className="border-0">Completed Lecture</th>
+                <th scope="col" className="border-0 rounded-end">Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div className="d-flex align-items-center">
-                    <div className="w-100px">
-                      <img src={courses8} className="rounded" alt="courses" />
-                    </div>
-                    <div className="mb-0 ms-2">
-                      <h6>
-                        <a href="#">Building Scalable APIs with GraphQL</a>
-                      </h6>
-                      <div className="overflow-hidden">
-                        <h6 className="mb-0 text-end">85%</h6>
-                        <div className="progress progress-sm bg-primary bg-opacity-10">
-                          <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                          width: '85%'
-                        }} aria-valuenow={85} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>56</td>
-                <td>40</td>
-                <td>
-                  <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0">
-                    <BsPlayCircle className="me-1 icons-center" />
-                    Continue
-                  </Button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="d-flex align-items-center">
-                    <div className="w-100px">
-                      <img src={courses3} className="rounded" alt="courses" />
-                    </div>
-                    <div className="mb-0 ms-2">
-                      <h6>
-                        <a href="#">Create a Design System in Figma</a>
-                      </h6>
-                      <div className="overflow-hidden">
-                        <h6 className="mb-0 text-end">100%</h6>
-                        <div className="progress progress-sm bg-primary bg-opacity-10">
-                          <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                          width: '100%'
-                        }} aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>42</td>
-                <td>42</td>
-                <td>
-                  <button className="btn btn-sm btn-success me-1 mb-1 mb-x;-0 disabled">
-                    <BsCheck className="me-1 icons-center" />
-                    Complete
-                  </button>
-                  <Button variant="light" size="sm" className="me-1">
-                    <BsArrowRepeat className="me-1 icons-center" />
-                    Restart
-                  </Button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="d-flex align-items-center">
-                    <div className="w-100px">
-                      <img src={courses5} className="rounded" alt="courses" />
-                    </div>
-                    <div className="mb-0 ms-2">
-                      <h6>
-                        <a href="#">The Complete Web Development in python</a>
-                      </h6>
-                      <div className="overflow-hidden">
-                        <h6 className="mb-0 text-end">60%</h6>
-                        <div className="progress progress-sm bg-primary bg-opacity-10">
-                          <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                          width: '60%'
-                        }} aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>28</td>
-                <td>12</td>
-                <td>
-                  <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0">
-                    <BsPlayCircle className="me-1 icons-center" />
-                    Continue
-                  </Button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="d-flex align-items-center">
-                    <div className="w-100px">
-                      <img src={courses1} className="rounded" alt="courses" />
-                    </div>
-                    <div className="mb-0 ms-2">
-                      <h6>
-                        <a href="#">Digital Marketing Masterclass</a>
-                      </h6>
-                      <div className="overflow-hidden">
-                        <h6 className="mb-0 text-end">40%</h6>
-                        <div className="progress progress-sm bg-primary bg-opacity-10">
-                          <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                          width: '40%'
-                        }} aria-valuenow={40} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>32</td>
-                <td>18</td>
-                <td>
-                  <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0">
-                    <BsPlayCircle className="me-1 icons-center" />
-                    Continue
-                  </Button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div className="d-flex align-items-center">
-                    <div className="w-100px">
-                      <img src={courses2} className="rounded" alt="courses" />
-                    </div>
-                    <div className="mb-0 ms-2">
-                      <h6>
-                        <a href="#">Graphic Design Masterclass</a>
-                      </h6>
-                      <div className="overflow-hidden">
-                        <h6 className="mb-0 text-end">90%</h6>
-                        <div className="progress progress-sm bg-primary bg-opacity-10">
-                          <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                          width: '90%'
-                        }} aria-valuenow={90} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>16</td>
-                <td>14</td>
-                <td>
-                  <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0">
-                    <BsPlayCircle className="me-1 icons-center" />
-                    Continue
-                  </Button>
-                </td>
-              </tr>
+              {items.slice(0, 5).map((it, idx) => (
+                <RowItem key={idx} {...it} />
+              ))}
             </tbody>
           </table>
         </div>
@@ -243,6 +152,6 @@ const CoursesList = () => {
           </nav>
         </div>
       </CardBody>
-    </Card>;
+    </Card>);
 };
 export default CoursesList;

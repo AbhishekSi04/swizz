@@ -29,34 +29,34 @@
         border: none;
       }
 
-// Fallback: theme generic dropdowns inside header/navbars
-header .dropdown-menu,
-.main-navbar .dropdown-menu,
-.navbar .dropdown-menu {
-  background-color: var(--bs-body-bg);
-  color: var(--bs-body-color);
-  border: 1px solid var(--bs-border-color);
-}
-header .dropdown-menu .dropdown-item,
-.main-navbar .dropdown-menu .dropdown-item,
-.navbar .dropdown-menu .dropdown-item {
-  color: var(--bs-body-color);
-}
-header .dropdown-menu .dropdown-item:hover,
-.main-navbar .dropdown-menu .dropdown-item:hover,
-.navbar .dropdown-menu .dropdown-item:hover,
-header .dropdown-menu .dropdown-item:focus,
-.main-navbar .dropdown-menu .dropdown-item:focus,
-.navbar .dropdown-menu .dropdown-item:focus,
-header .dropdown-menu .dropdown-item.active,
-.main-navbar .dropdown-menu .dropdown-item.active,
-.navbar .dropdown-menu .dropdown-item.active,
-header .dropdown-menu .dropdown-item:active,
-.main-navbar .dropdown-menu .dropdown-item:active,
-.navbar .dropdown-menu .dropdown-item:active {
-  background-color: rgba(var(--bs-primary-rgb), 0.12);
-  color: var(--bs-body-color);
-}
+// // Fallback: theme generic dropdowns inside header/navbars
+// header .dropdown-menu,
+// .main-navbar .dropdown-menu,
+// .navbar .dropdown-menu {
+//   background-color: var(--bs-body-bg);
+//   color: var(--bs-body-color);
+//   border: 1px solid var(--bs-border-color);
+// }
+// header .dropdown-menu .dropdown-item,
+// .main-navbar .dropdown-menu .dropdown-item,
+// .navbar .dropdown-menu .dropdown-item {
+//   color: var(--bs-body-color);
+// }
+// header .dropdown-menu .dropdown-item:hover,
+// .main-navbar .dropdown-menu .dropdown-item:hover,
+// .navbar .dropdown-menu .dropdown-item:hover,
+// header .dropdown-menu .dropdown-item:focus,
+// .main-navbar .dropdown-menu .dropdown-item:focus,
+// .navbar .dropdown-menu .dropdown-item:focus,
+// header .dropdown-menu .dropdown-item.active,
+// .main-navbar .dropdown-menu .dropdown-item.active,
+// .navbar .dropdown-menu .dropdown-item.active,
+// header .dropdown-menu .dropdown-item:active,
+// .main-navbar .dropdown-menu .dropdown-item:active,
+// .navbar .dropdown-menu .dropdown-item:active {
+//   background-color: rgba(var(--bs-primary-rgb), 0.12);
+//   color: var(--bs-body-color);
+// }
       .dropdown-submenu.dropend .dropdown-toggle:after {
         content: "";
         font-family: $fa-font-family;
@@ -413,10 +413,7 @@ header .dropdown-menu .dropdown-item:active,
   }
 }
 
-// Hide all brand images site-wide
-.navbar-brand-item {
-  display: none !important;
-}
+// (Reverted) Do not hide navbar brand items globally
 
 // Themed dropdown menu (used by AppMenu accounts menu)
 .custom-navbar-dropdown-menu {

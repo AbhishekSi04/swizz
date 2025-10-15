@@ -9,13 +9,12 @@ const Footer = () => {
         <Row className="align-items-center">
           <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
             <Link to="/">
-
-              <img className="h-20px" src={logoLight} height={20} width={94} alt="logo" />
+              {/* <img className="h-20px" src={logoLight} height={20} width={94} alt="VELTRIX IT SOLUTIONS" /> */}
             </Link>
           </Col>
           <Col md={4} className="mb-3 mb-md-0">
             <div className="text-center text-white text-primary-hover">
-              Copyrights ©2024 Swhizz. Build by
+              Copyrights ©2024 VELTRIX IT SOLUTIONS PRIVATE LIMITED. Build by
               <Link to={developedByLink} target="_blank" className="text-white">
                 {developedBy}
               </Link>

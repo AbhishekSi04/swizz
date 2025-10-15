@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import httpClient from '@/helpers/httpClient';
 import { BsArrowRepeat, BsCheck, BsPlayCircle } from 'react-icons/bs';
 import { FaAngleLeft, FaAngleRight, FaSearch } from 'react-icons/fa';
-import { courseData } from './data';
 const CourseData = ({
   completedLectures,
   image,
@@ -63,8 +62,8 @@ const CourseListPage = () => {
           const totalLectures = (course.lessons || []).length || 0;
           const completedLectures = totalLectures ? Array.from(Object.values(en.progressByLessonId || {})).filter(Boolean).length : 0;
           return {
-            name: course.title,
-            image: '/logo.svg',
+            name: course.title || 'Untitled course',
+            image: course.thumbnailUrl || course.image || '/logo.svg',
             totalLectures,
             completedLectures
           };
@@ -121,11 +120,14 @@ const CourseListPage = () => {
                   </th>
                 </tr>
               </thead>
-              {(items.length ? items : courseData).map((item, idx) => <tbody key={idx}>
+              {items.map((item, idx) => <tbody key={idx}>
                   <CourseData {...item} />
                 </tbody>)}
             </table>
           </div>
+          {!items.length && (
+            <div className="text-center py-5 text-muted">No enrollments yet.</div>
+          )}
           <div className="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
             <p className="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
             <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
