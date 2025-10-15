@@ -1,0 +1,9 @@
+export const currency = '$';
+export const currentYear = new Date().getFullYear();
+export const developedByLink = 'https://stackbros.com/';
+export const developedBy = 'Stackbros';
+export const contactUs = 'mailto:connect.veltrixit.in';
+export const buyLink = '';
+export const basePath = '';
+export const DEFAULT_PAGE_TITLE = 'VELTRIX IT SOLUTIONS PRIVATE LIMITED | Top-notch Software Training Institute in Hyderabad';
+export const colorVariants = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light'];
