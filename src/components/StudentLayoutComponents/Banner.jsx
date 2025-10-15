@@ -1,4 +1,5 @@
 import avatar9 from '@/assets/images/avatar/09.jpg';
+import { useAuthContext } from '@/context/useAuthContext';
 import patternImg from '@/assets/images/pattern/04.png';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaSlidersH } from 'react-icons/fa';
@@ -6,6 +7,9 @@ import { Link } from 'react-router-dom';
 const Banner = ({
   toggleOffCanvas
 }) => {
+  const { user } = useAuthContext();
+  const displayName = user?.user?.name || user?.name || 'User';
+  const avatarUrl = user?.avatarUrl || avatar9;
   return <section className="pt-0">
       <Container fluid className="px-0">
         <Card className="bg-blue h-100px h-md-200px rounded-0" style={{
@@ -20,7 +24,7 @@ const Banner = ({
               <Row className="d-sm-flex justify-sm-content-between mt-2 mt-md-0">
                 <Col xs={'auto'}>
                   <div className="avatar avatar-xxl position-relative mt-n3">
-                    <img className="avatar-img rounded-circle border border-white border-3 shadow" src={avatar9} alt="avatar" />
+                    <img className="avatar-img rounded-circle border border-white border-3 shadow" src={avatarUrl} alt="avatar" />
                     <span className="badge text-bg-success rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">
                       Pro
                     </span>
@@ -28,7 +32,7 @@ const Banner = ({
                 </Col>
                 <Col className="d-sm-flex justify-content-between align-items-center">
                   <div>
-                    <h1 className="my-1 fs-4">Lori Stevens</h1>
+                    <h1 className="my-1 fs-4">{displayName}</h1>
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item me-3 mb-1 mb-sm-0">
                         <span className="h6">255</span>

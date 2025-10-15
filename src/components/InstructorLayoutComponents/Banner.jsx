@@ -1,4 +1,5 @@
 import avatar1 from '@/assets/images/avatar/01.jpg';
+import { useAuthContext } from '@/context/useAuthContext';
 import patternImg from '@/assets/images/pattern/04.png';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { BsPatchCheckFill } from 'react-icons/bs';
@@ -7,6 +8,9 @@ import { Link } from 'react-router-dom';
 const Banner = ({
   toggleOffCanvas
 }) => {
+  const { user } = useAuthContext();
+  const displayName = user?.user?.name || user?.name || 'User';
+  const avatarUrl = user?.avatarUrl || avatar1;
   return <section className="pt-0">
       <Container fluid className="px-0">
         <div className="bg-blue h-100px h-md-200px rounded-0" style={{
@@ -21,13 +25,13 @@ const Banner = ({
               <Row className="d-flex justify-content-between">
                 <Col xs={'auto'} className="mt-4 mt-md-0">
                   <div className="avatar avatar-xxl mt-n3">
-                    <img className="avatar-img rounded-circle border border-white border-3 shadow" src={avatar1} alt="avatar" />
+                    <img className="avatar-img rounded-circle border border-white border-3 shadow" src={avatarUrl} alt="avatar" />
                   </div>
                 </Col>
                 <Col className="d-md-flex justify-content-between align-items-center mt-4">
                   <div>
                     <h1 className="my-1 fs-4">
-                      Lori Stevens <BsPatchCheckFill className="text-info small" />
+                      {displayName} <BsPatchCheckFill className="text-info small" />
                     </h1>
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0">
