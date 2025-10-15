@@ -53,9 +53,7 @@ const Header = () => {
 
       <Navbar expand="lg" className="main-navbar" expanded={expanded} onToggle={() => setExpanded(!expanded)}>
         <Container>
-          <Link to="/" className="navbar-brand">
-            <span className="logo-text">Your</span>Logo
-          </Link>
+          <Link to="/" className="navbar-brand" />
           
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           

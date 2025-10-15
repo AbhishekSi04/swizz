@@ -383,3 +383,8 @@
     border-radius: 0;
   }
 }
+
+// Hide all brand images site-wide
+.navbar-brand-item {
+  display: none !important;
+}

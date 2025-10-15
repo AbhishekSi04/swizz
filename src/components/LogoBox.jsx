@@ -12,21 +12,6 @@ const LogoBox = ({
       e.currentTarget.src = fallback;
     }
   };
-  return <Link className="navbar-brand" to="/">
-      <img
-        className="light-mode-item navbar-brand-item"
-        src={pngPath}
-        alt="Swhizz logo"
-        onError={(e) => onImgError(e, logo)}
-        style={{ height, width, objectFit: 'contain' }}
-      />
-      <img
-        className="dark-mode-item navbar-brand-item"
-        src={pngPath}
-        alt="Swhizz logo"
-        onError={(e) => onImgError(e, logoLight)}
-        style={{ height, width, objectFit: 'contain' }}
-      />
-    </Link>;
+  return <Link className="navbar-brand" to="/" />;
 };
 export default LogoBox;
