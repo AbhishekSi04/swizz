@@ -110,6 +110,21 @@ const AppMenu = ({
 }) => {
   const [activeMenuItems, setActiveMenuItems] = useState([]);
   const menuItems = getAppMenuItems();
+  const { user } = useAuthContext();
+  const role = user?.user?.role || user?.role;
+
+  // Only show the current role's section under Accounts, plus quick actions
+  const filteredMenuItems = (menuItems ?? []).map((mi) => {
+    if (mi.key !== 'accounts') return mi;
+    const allowedKeys = ['editProfile', 'setting', 'deleteProfile'];
+    if (role === 'student') allowedKeys.unshift('student');
+    else if (role === 'instructor') allowedKeys.unshift('instructor');
+    // For other/unknown roles, show only quick actions (they may be disabled by resolver)
+    return {
+      ...mi,
+      children: (mi.children ?? []).filter((ch) => allowedKeys.includes(ch.key))
+    };
+  });
   const {
     pathname
   } = useLocation();
@@ -119,17 +134,17 @@ const AppMenu = ({
    */
   const activeMenu = useCallback(() => {
     const trimmedURL = pathname?.replaceAll('', '');
-    const matchingMenuItem = getMenuItemFromURL(menuItems, trimmedURL);
+    const matchingMenuItem = getMenuItemFromURL(filteredMenuItems, trimmedURL);
     if (matchingMenuItem) {
-      const activeMt = findMenuItem(menuItems, matchingMenuItem.key);
+      const activeMt = findMenuItem(filteredMenuItems, matchingMenuItem.key);
       if (activeMt) {
-        setActiveMenuItems([activeMt.key, ...findAllParent(menuItems, activeMt)]);
+        setActiveMenuItems([activeMt.key, ...findAllParent(filteredMenuItems, activeMt)]);
       }
     }
-  }, [pathname, menuItems]);
+  }, [pathname, filteredMenuItems]);
   useEffect(() => {
     activeMenu();
-  }, [activeMenu, menuItems]);
+  }, [activeMenu, filteredMenuItems]);
   const MegamenuData = getMegaMenuItems();
   return <Collapse in={mobileMenuOpen} className="navbar-collapse collapse">
       <div>
@@ -155,8 +170,8 @@ const AppMenu = ({
         })}
           </ul>}
         <ul className={clsx('navbar-nav navbar-nav-scroll', menuClassName)}>
-          {(menuItems ?? []).map((item, idx) => {
-          return <Fragment key={item.key + idx}>
+          {(filteredMenuItems ?? []).map((item, idx) => {
+            return <Fragment key={item.key + idx}>
                 {item.children ? <MenuItemWithChildren item={item} activeMenuItems={activeMenuItems} level={1} itemClassName="nav-item cursor-pointer" linkClassName={clsx('nav-link arrow-none d-flex align-items-center gap-1 justify-content-between', {
               active: activeMenuItems.includes(item.key)
             })} /> : <MenuItem item={item} level={1} linkClassName={clsx(activeMenuItems.includes(item.key) && 'active')} />}

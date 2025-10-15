@@ -1,5 +1,6 @@
 import { INSTRUCTOR_MENU_ITEMS, STUDENT_MENU_ITEMS, ADMIN_MENU_ITEMS } from '@/assets/data/menu-items';
 import Preloader from '@/components/Preloader';
+import Header from '@/components/Header';
 import { useAuthContext } from '@/context/useAuthContext';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import useToggle from '@/hooks/useToggle';
@@ -60,6 +61,7 @@ const VerticalMenu = () => {
 const InstructorLayout = ({
   children
 }) => {
+  const { pathname } = useLocation();
   const {
     width
   } = useViewPort();
@@ -69,9 +71,13 @@ const InstructorLayout = ({
     toggle: toggleOffCanvasMenu
   } = useToggle();
   return <>
-      <Suspense>
-        <TopNavigationBar />
-      </Suspense>
+      {pathname?.startsWith('/instructor/edit-profile') ? (
+        <Header />
+      ) : (
+        <Suspense>
+          <TopNavigationBar />
+        </Suspense>
+      )}
       <main>
         <Banner toggleOffCanvas={toggleOffCanvasMenu} />
         <section className="pt-0">

@@ -1,5 +1,6 @@
 import { STUDENT_MENU_ITEMS } from '@/assets/data/menu-items';
 import Preloader from '@/components/Preloader';
+import Header from '@/components/Header';
 import { useAuthContext } from '@/context/useAuthContext';
 import useToggle from '@/hooks/useToggle';
 import useViewPort from '@/hooks/useViewPort';
@@ -15,6 +16,7 @@ const TopNavigationBar = lazy(() => import('@/components/StudentLayoutComponents
 const StudentLayout = ({
   children
 }) => {
+  const { pathname } = useLocation();
   const {
     width
   } = useViewPort();
@@ -23,9 +25,13 @@ const StudentLayout = ({
     toggle: toggleOffCanvasMenu
   } = useToggle();
   return <>
-      <Suspense>
-        <TopNavigationBar />
-      </Suspense>
+      {pathname?.startsWith('/student/edit-profile') ? (
+        <Header />
+      ) : (
+        <Suspense>
+          <TopNavigationBar />
+        </Suspense>
+      )}
       <main>
         <Banner toggleOffCanvas={toggleOffCanvasMenu} />
         <section className="pt-0">
