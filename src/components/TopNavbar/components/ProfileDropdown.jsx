@@ -38,6 +38,8 @@ const ProfileDropdown = ({
     isAuthenticated,
     user
   } = useAuthContext();
+  const role = user?.user?.role || user?.role;
+  console.log(role);
   if (!isAuthenticated) {
     return <div className={className}>
       <Link to="/auth/sign-in" className="btn btn-sm btn-primary me-2">Sign In</Link>
@@ -67,10 +69,17 @@ const ProfileDropdown = ({
           <DropdownDivider />
         </li>
         <li>
-          <DropdownItem href="/instructor/edit-profile">
-            <BsPerson className="fa-fw me-2" />
-            Edit Profile
-          </DropdownItem>
+          {role === 'admin' ? (
+            <DropdownItem disabled>
+              <BsPerson className="fa-fw me-2" />
+              Edit Profile
+            </DropdownItem>
+          ) : (
+            <DropdownItem as={Link} to={role === 'student' ? '/student/edit-profile' : '/instructor/edit-profile'}>
+              <BsPerson className="fa-fw me-2" />
+              Edit Profile
+            </DropdownItem>
+          )}
         </li>
         {/* <li>
           <DropdownItem href="/admin/admin-settings">

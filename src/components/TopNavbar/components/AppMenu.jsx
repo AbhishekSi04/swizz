@@ -12,6 +12,7 @@ import avatar9 from '@/assets/images/avatar/09.jpg';
 import appStore from '@/assets/images/client/app-store.svg';
 import googlePlay from '@/assets/images/client/google-play.svg';
 import element14 from '@/assets/images/element/14.svg';
+import { useAuthContext } from '@/context/useAuthContext';
 import CategoryMegaMenu from './CategoryMegaMenu';
 export const MenuItemWithChildren = ({
   item,
@@ -60,8 +61,40 @@ const MenuItemLink = ({
   item,
   linkClassName
 }) => {
+  const { user } = useAuthContext();
+  const role = user?.user?.role || user?.role;
   const Icon = item.icon;
-  return <DropdownItem as={Link} to={item.url ?? ''} target={item.target} className={clsx(linkClassName, 'icons-center')}>
+
+  // Resolve role-based URLs for Accounts quick actions
+  const resolveUrl = () => {
+    if (item?.parentKey === 'accounts') {
+      if (item?.key === 'editProfile') {
+        if (role === 'student') return '/student/edit-profile';
+        if (role === 'instructor') return '/instructor/edit-profile';
+        if (role === 'admin') return '';
+      }
+      if (item?.key === 'setting') {
+        if (role === 'student') return '/student/setting';
+        if (role === 'instructor') return '/instructor/setting';
+        if (role === 'admin') return '';
+      }
+      if (item?.key === 'deleteProfile') {
+        if (role === 'student') return '/student/delete-account';
+        if (role === 'instructor') return '/instructor/delete-account';
+        if (role === 'admin') return '';
+      }
+    }
+    return item.url ?? '';
+  };
+
+  const url = resolveUrl();
+  if (!url) {
+    return <DropdownItem className={clsx(linkClassName, 'icons-center')} disabled>
+        {Icon && <Icon className="me-1 fa-fw me-1" />}
+        {item.label}
+      </DropdownItem>;
+  }
+  return <DropdownItem as={Link} to={url} target={item.target} className={clsx(linkClassName, 'icons-center')}>
       {Icon && <Icon className="me-1 fa-fw me-1" />}
       {item.label}
     </DropdownItem>;
