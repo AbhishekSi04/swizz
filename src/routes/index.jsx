@@ -111,12 +111,12 @@ const NotFound = lazy(() => import('@/app/admin/error-404/page'));
 const initialRoutes = [{
   path: '/',
   name: 'root',
-  element: <Navigate to="/demos/default/home" />
+  element: <DemosDefault />
 }];
 export const demosRoutes = [{
   path: '/demos/default/home',
   name: 'Demos',
-  element: <DemosDefault />
+  element: <Navigate to="/" />
 }, {
   path: '/demos/default/home/contact',
   name: 'Default Contact',
