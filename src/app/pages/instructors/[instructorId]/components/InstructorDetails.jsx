@@ -167,7 +167,7 @@ const InstructorDetails = () => {
                   <FaEnvelope className="text-primary me-1 me-sm-3" />
                   Email:
                 </span>
-                <span>info@swhizz.com</span>
+                <span> connect.veltrixit.inswhizz.com</span>
               </li>
               <li className="list-group-item px-0">
                 <span className="h6 fw-light">

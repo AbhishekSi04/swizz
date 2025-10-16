@@ -38,7 +38,7 @@ const AdmissionFrom = () => {
             <h2 className="mb-3">Apply for Admission</h2>
             <p>
               You can apply online by filling up below form or <a href="#">Download a pdf</a> and submit. Any question related admission process,
-              please contact our admission office at <a href="#">+91 9392002299</a> or <a href="#">info@swhizz.com</a>.
+              please contact our admission office at <a href="#">+91 9392002299</a> or <a href="#"> connect.veltrixit.inswhizz.com</a>.
             </p>
             <p className="mb-1">Before you proceed with the form please read below topics:</p>
             <ul className="ps-3">

@@ -1080,7 +1080,7 @@ export const supportRequestsData = [{
   time: addOrSubtractHoursFromDate(8)
 }, {
   name: 'Dennis Barrett',
-  description: 'Stackbros assign you a new ticket for Swhizz theme',
+  description: 'Stackbros assign you a new ticket for VELTRIX IT SOLUTIONS PRIVATE LIMITED theme',
   time: addOrSubtractHoursFromDate(5)
 }, {
   name: 'Dennis Barrett',

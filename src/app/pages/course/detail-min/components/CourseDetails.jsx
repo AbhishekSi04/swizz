@@ -37,7 +37,7 @@ const CourseDetails = () => {
                       <h6 className="mb-0">
                         <a href="#">By Jacqueline Miller</a>
                       </h6>
-                      <p className="mb-0 small">Founder Swhizz company</p>
+                      <p className="mb-0 small">Founder VELTRIX IT SOLUTIONS PRIVATE LIMITED company</p>
                     </div>
                   </div>
                   <div className="d-flex mt-2 mt-sm-0">

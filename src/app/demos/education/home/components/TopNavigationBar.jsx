@@ -115,7 +115,7 @@ const TopNavigationBar = () => {
                   <a className="h6" href="#">
                     Lori Ferguson
                   </a>
-                  <p className="small m-0">info@swhizz.com</p>
+                  <p className="small m-0"> connect.veltrixit.inVELTRIX IT SOLUTIONS PRIVATE LIMITED.com</p>
                 </div>
               </div>
             </li>

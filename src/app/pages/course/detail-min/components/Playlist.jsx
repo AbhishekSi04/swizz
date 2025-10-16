@@ -148,7 +148,7 @@ const Playlist = () => {
               <p className="mb-1 small">
                 <a href="#" className="text-white">
                   <FaRegEnvelope className="fa-fw me-2" />
-                  info@swhizz.com
+                   connect.veltrixit.inVELTRIX IT SOLUTIONS PRIVATE LIMITED.com
                 </a>
               </p>
               <p className="mb-0 small">

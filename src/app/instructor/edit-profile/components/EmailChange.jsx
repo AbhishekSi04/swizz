@@ -7,7 +7,7 @@ const EmailChange = () => {
         </CardHeader>
         <CardBody>
           <p>
-            Your current email address is <span className="text-primary">info@swhizz.com</span>
+            Your current email address is <span className="text-primary"> connect.veltrixit.inswhizz.com</span>
           </p>
           <form>
             <label className="form-label">Enter your new email id</label>

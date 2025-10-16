@@ -14,7 +14,7 @@ const Footer = () => {
               <img className="h-40px" src={logoLight} alt="logo" />
             </Link>
             <p className="mt-3 ">
-              Swhizz is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
             </p>
             <ul className="nav justify-content-center justify-content-center text-primary-hover mt-3 mt-md-0">
               {footerLinks2.map((item, idx) => <li className="nav-item" key={idx}>
@@ -35,7 +35,7 @@ const Footer = () => {
             </ul>
             <div className=" text-primary-hover mt-3">
 
-              Copyrights ©2024 Swhizz. Build by
+              Copyrights ©2024 VELTRIX IT SOLUTIONS PRIVATE LIMITED. Build by
               <Link to={developedByLink} target="_blank" className="text-reset">
                 {developedBy}
               </Link>

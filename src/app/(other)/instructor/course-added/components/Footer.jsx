@@ -19,11 +19,11 @@ const Footer = ({
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              <img className="light-mode-item h-40px" width={189} height={40} src={logo} alt="logo" />
-              <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="logo" />
+              {/* <img className="light-mode-item h-40px" width={189} height={40} src={logo} alt="logo" />
+              <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="logo" /> */}
             </Link>
             <p className="my-3">
-              Swhizz is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
             </p>
             <ul className="list-inline mb-0 mt-3">
               <li className="list-inline-item">
@@ -73,7 +73,8 @@ const Footer = ({
               <span className="d-block small">(9:AM to 8:PM IST)</span>
             </p>
             <p className="mb-0">
-              Email:<span className="h6 fw-light ms-2">info@swhizz.com</span>
+              Email:<span className="h6 fw-light ms-2"> connect.veltrixit.in 
+</span>
             </p>
             <Row className="g-2 mt-2">
               <Col xs={6} sm={4} md={3} lg={6}>
@@ -97,7 +98,7 @@ const Footer = ({
             <div className="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
               <div className="text-body text-primary-hover">
 
-                Copyrights ©2024 Swhizz. Build by
+                Copyrights ©2024 VELTRIX IT SOLUTIONS PRIVATE LIMITED. Build by
                 <Link to={developedByLink} target="_blank" className="text-body">
                   Stackbros
                 </Link>

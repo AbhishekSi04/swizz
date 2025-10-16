@@ -30,7 +30,7 @@ const Reviews = () => {
                       <span className="me-1 small">
                         <FaQuoteLeft />
                       </span>
-                      Swhizz’s Java + SQL training gave me the foundation and confidence to crack interviews within 6 weeks. The mentors focus on
+                      VELTRIX IT SOLUTIONS PRIVATE LIMITED’s Java + SQL training gave me the foundation and confidence to crack interviews within 6 weeks. The mentors focus on
                       real projects, mock interviews and clear every doubt patiently.
                       <span className="ms-1 small">
                         <FaQuoteRight />
@@ -217,7 +217,7 @@ const Reviews = () => {
           <Col xl={5} className="order-1 text-center text-xl-start">
             <h2 className="fs-1">What our learners say</h2>
             <p>
-              Real stories from Swhizz graduates who secured jobs through our intensive, mentor-led programs and impeccable placements support.
+              Real stories from VELTRIX IT SOLUTIONS PRIVATE LIMITED graduates who secured jobs through our intensive, mentor-led programs and impeccable placements support.
               Weekend and weekday batches help working professionals upskill without compromise.
             </p>
             <a href="#" className="btn btn-primary mb-0">

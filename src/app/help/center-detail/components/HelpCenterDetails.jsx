@@ -113,7 +113,7 @@ const HelpCenterDetails = () => {
                   </CardHeader>
                   <CardBody className="px-0">
                     <p>
-                      You can manage the setting for your <a href="#">Swhizz account</a> at any time. Update your account information
+                      You can manage the setting for your <a href="#">VELTRIX IT SOLUTIONS PRIVATE LIMITED account</a> at any time. Update your account information
                     </p>
                     <h5 className="mt-4">To deactivate your account</h5>
                     <ul>
@@ -153,7 +153,7 @@ const HelpCenterDetails = () => {
                     <ul className="list-group list-group-borderless mb-3">
                       <li className="list-group-item d-flex pb-0">
                         <Link to="#" className="mb-0">
-                          How do I logout on Swhizz
+                          How do I logout on VELTRIX IT SOLUTIONS PRIVATE LIMITED
                         </Link>
                       </li>
                       <li className="list-group-item d-flex pb-0">
@@ -168,7 +168,7 @@ const HelpCenterDetails = () => {
                       </li>
                       <li className="list-group-item d-flex pb-0">
                         <Link to="#" className="mb-0">
-                          Why did my payment in a Swhizz message fail?
+                          Why did my payment in a VELTRIX IT SOLUTIONS PRIVATE LIMITED message fail?
                         </Link>
                       </li>
                     </ul>
@@ -228,7 +228,7 @@ const HelpCenterDetails = () => {
                       </li>
                       <li className="list-group-item d-flex pb-0">
                         <a href="#" className="mb-0">
-                          When you pay for Swhizz ads
+                          When you pay for VELTRIX IT SOLUTIONS PRIVATE LIMITED ads
                         </a>
                       </li>
                     </ul>

@@ -35,7 +35,7 @@ const PersonalInformation = () => {
               <ul className="list-group list-group-borderless">
                 <li className="list-group-item">
                   <span>Email ID:</span>&nbsp;
-                  <span className="h6 mb-0">info@swhizz.com</span>
+                  <span className="h6 mb-0"> connect.veltrixit.inVELTRIX IT SOLUTIONS PRIVATE LIMITED.com</span>
                 </li>
                 <li className="list-group-item">
                   <span>Location:</span>&nbsp;

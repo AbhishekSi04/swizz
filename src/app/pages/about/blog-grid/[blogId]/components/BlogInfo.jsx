@@ -26,7 +26,7 @@ const BlogInfo = ({
                     <Link to="#" className="h5 stretched-link mt-2 mb-0 d-block">
                       {blog.name}
                     </Link>
-                    <p className="mb-2">Editor at Swhizz</p>
+                    <p className="mb-2">Editor at VELTRIX IT SOLUTIONS PRIVATE LIMITED</p>
                   </div>
                   <ul className="list-inline list-unstyled">
                     <li className="list-inline-item d-lg-block my-lg-2">Nov 15, 2021</li>

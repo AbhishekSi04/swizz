@@ -8,7 +8,7 @@ const LatestNews = () => {
       <Container>
         <Row className="mb-4">
           <div className="d-md-flex justify-content-md-between align-items-center">
-            <h2 className="mb-2 mb-md-0">Swhizz Latest News</h2>
+            <h2 className="mb-2 mb-md-0">VELTRIX IT SOLUTIONS PRIVATE LIMITED Latest News</h2>
             <div>
               <span className="me-2">Want to read more?</span>
               <Button variant="primary-soft" size="sm" className=" mb-0">

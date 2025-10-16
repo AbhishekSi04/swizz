@@ -79,7 +79,7 @@ const Blogs = () => {
                   Travel
                 </a>
                 <CardTitle>
-                  <Link to="">Never underestimate the influence of Swhizz</Link>
+                  <Link to="">Never underestimate the influence of VELTRIX IT SOLUTIONS PRIVATE LIMITED</Link>
                 </CardTitle>
                 <p className="text-truncate-2">Prospective students should start broadly and then narrow their list </p>
                 <div className="d-flex justify-content-between">
@@ -181,7 +181,7 @@ const Blogs = () => {
                   Technology
                 </a>
                 <CardTitle>
-                  <Link to="">10 things you need to know about Swhizz</Link>
+                  <Link to="">10 things you need to know about VELTRIX IT SOLUTIONS PRIVATE LIMITED</Link>
                 </CardTitle>
                 <p className="text-truncate-2">Prospective students should start broadly and then narrow their list </p>
                 <div className="d-flex justify-content-between">

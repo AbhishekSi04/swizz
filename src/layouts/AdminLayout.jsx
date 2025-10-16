@@ -24,7 +24,7 @@ const AdminLayout = ({
       <nav className="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
         <div className="d-flex align-items-center">
           <Link className="navbar-brand" to="/">
-            <img className="navbar-brand-item" src={logoImg} alt="Swhizz logo" />
+            <img className="navbar-brand-item" src={logoImg} alt="VELTRIX IT SOLUTIONS PRIVATE LIMITED logo" />
           </Link>
         </div>
         {width >= 1200 ? <div className="sidebar-content d-flex flex-column bg-dark">

@@ -99,7 +99,7 @@ const TopNavigationBar = () => {
                   </NavItem>
                   <NavItem>
                     <a className="nav-link" href="#">
-                      Swhizz Business
+                      VELTRIX IT SOLUTIONS PRIVATE LIMITED Business
                     </a>
                   </NavItem>
                   <NavItem>

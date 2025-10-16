@@ -17,7 +17,7 @@ const Hero = () => {
       <Container>
         <Row className="align-items-center justify-content-xl-between g-4 g-md-5">
           <Col lg={7} xl={5} className="position-relative z-index-1 text-center text-lg-start mb-2 mb-md-9 mb-xl-0">
-            <h6 className="mb-3 font-base bg-primary bg-opacity-10 text-primary py-2 px-4 rounded-2 d-inline-block">Get started with Swhizz</h6>
+            <h6 className="mb-3 font-base bg-primary bg-opacity-10 text-primary py-2 px-4 rounded-2 d-inline-block">Get started with VELTRIX IT SOLUTIONS PRIVATE LIMITED</h6>
             <h1 className="mb-4 display-5">
               Develop the skillset &amp; your&nbsp;
               <span className="position-relative d-inline-block">

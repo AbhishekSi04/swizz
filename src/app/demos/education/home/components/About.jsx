@@ -8,7 +8,7 @@ const About = () => {
         <Row className="g-4 align-items-center">
           <Col lg={5}>
             <h2>
-              Find Out More About us, <span className="text-warning">Swhizz</span> insides.
+              Find Out More About us, <span className="text-warning">VELTRIX IT SOLUTIONS PRIVATE LIMITED</span> insides.
             </h2>
             <img src={about3} className="rounded-2" alt="" />
           </Col>

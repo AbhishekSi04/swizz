@@ -7,7 +7,7 @@ const About = () => {
       <Container>
         <Row className="mb-4">
           <Col lg={8}>
-            <h2>About Swhizz Portal</h2>
+            <h2>About VELTRIX IT SOLUTIONS PRIVATE LIMITED Portal</h2>
             <p className="mb-0">
               How promotion excellent curiosity yet attempted happiness Gay prosperous impression had conviction For every delay death ask to style Me
               mean able my by in they Extremity now strangers contained.

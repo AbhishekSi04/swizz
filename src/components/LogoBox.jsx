@@ -5,7 +5,7 @@ const LogoBox = ({
   height,
   width
 }) => {
-  const pngPath = '/swhizz-logo.png'; // place PNG in public/swhizz-logo.png
+  // const pngPath = '/swhizz-logo.png'; // place PNG in public/swhizz-logo.png
   const onImgError = (e, fallback) => {
     if (e?.currentTarget) {
       e.currentTarget.onerror = null;

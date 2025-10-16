@@ -25,7 +25,7 @@ const ActionBox = () => {
               <Col xs={11} className="mx-auto position-relative">
                 <Row className="align-items-center">
                   <Col lg={8}>
-                    <h3>Find out why families love Swhizz! Schedule your Personal Tour today.</h3>
+                    <h3>Find out why families love VELTRIX IT SOLUTIONS PRIVATE LIMITED! Schedule your Personal Tour today.</h3>
                     <p className="mb-3 mb-lg-0">
                       Speedily say has suitable disposal add boy. On forth doubt miles of child. Exercise joy man children rejoiced.
                     </p>

@@ -16,7 +16,7 @@ const Footer = () => {
               <img height={40} width={189} className="dark-mode-item h-40px" src={logoLight} alt="logo" />
             </Link>
             <p className="my-3">
-              Swhizz is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
             </p>
             <form className="row row-cols-lg-auto g-2">
               <Col xs={12}>

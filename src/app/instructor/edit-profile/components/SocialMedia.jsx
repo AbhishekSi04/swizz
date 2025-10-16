@@ -34,7 +34,7 @@ const SocialMedia = () => {
               <FaYoutube className="fab fa-youtube text-youtube me-2" />
               Add your youtube profile URL
             </label>
-            <input className="form-control" type="text" defaultValue="https://www.youtube.com/@Swhizz" placeholder="Enter username" />
+            <input className="form-control" type="text" defaultValue="https://www.youtube.com/@VELTRIX IT SOLUTIONS PRIVATE LIMITED" placeholder="Enter username" />
           </div>
           <div className="d-flex justify-content-end mt-4">
             <button type="button" className="btn btn-primary mb-0">

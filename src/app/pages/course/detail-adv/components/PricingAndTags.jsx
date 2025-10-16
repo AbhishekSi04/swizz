@@ -99,7 +99,7 @@ const PriceCard = () => {
           <h5 className="mb-0">
             <a href="#">By Jacqueline Miller</a>
           </h5>
-          <p className="mb-0 small">Founder Swhizz company</p>
+          <p className="mb-0 small">Founder VELTRIX IT SOLUTIONS PRIVATE LIMITED company</p>
         </div>
       </div>
       <div className="d-sm-flex justify-content-sm-between align-items-center mt-0 mt-sm-2">

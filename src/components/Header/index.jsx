@@ -34,7 +34,7 @@ const Header = () => {
           <div className="d-flex justify-content-between align-items-center py-2">
             <div className="contact-info">
               <span className="me-3">
-                <i className="bi bi-envelope me-1"></i> info@example.com
+                <i className="bi bi-envelope me-1"></i>  connect.veltrixit.inexample.com
               </span>
               <span>
                 <i className="bi bi-phone me-1"></i> +1 234 567 8900

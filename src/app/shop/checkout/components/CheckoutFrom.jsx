@@ -186,7 +186,7 @@ const CheckoutFrom = () => {
                       </AccordionHeader>
                       <AccordionBody>
                         <form className="row text-start g-3">
-                          <p className="mb-1">In order to complete your transaction, we will transfer you over to Swhizz secure servers.</p>
+                          <p className="mb-1">In order to complete your transaction, we will transfer you over to VELTRIX IT SOLUTIONS PRIVATE LIMITED secure servers.</p>
                           <p className="my-0">Select your bank from the drop-down list and click proceed to continue with your payment.</p>
                           <Col md={6}>
                             <ChoicesFormInput className="form-select form-select-sm js-choice border-0" aria-label=".form-select-sm">

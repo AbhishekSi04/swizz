@@ -224,7 +224,7 @@ const AppMenu = ({
                 })}
                   </Col>
                   <Col xl={6} xxl={3} className="mb-3">
-                    <h6 className="mb-0">Download Swhizz</h6>
+                    <h6 className="mb-0">Download VELTRIX IT SOLUTIONS PRIVATE LIMITED</h6>
                     <hr />
                     <img src={element14} alt="element" />
                     <Row className="g-2 justify-content-center mt-3">
@@ -271,7 +271,7 @@ const AppMenu = ({
                 <li>
                   <DropdownItem as={Link} to={buyLink} target="_blank">
                     <BsCloudDownloadFill className="text-success fa-fw  me-2" />
-                    Buy Swhizz!
+                    Buy VELTRIX IT SOLUTIONS PRIVATE LIMITED!
                   </DropdownItem>
                 </li>
                 <li>

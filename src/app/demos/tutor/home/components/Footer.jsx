@@ -15,7 +15,7 @@ const Footer = () => {
           </Col>
           <Col md={4} className="mb-3 mb-md-0">
             <div className="text-center text-white text-primary-hover">
-              Copyrights ©2024 Swhizz. Build by
+              Copyrights ©2024 VELTRIX IT SOLUTIONS PRIVATE LIMITED. Build by
               <Link to={developedByLink} target="_blank" className="text-white">
                 {developedBy}
               </Link>

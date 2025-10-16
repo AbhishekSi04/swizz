@@ -145,7 +145,7 @@ const Curriculum = () => {
               <p className="mb-1 small">
                 <a href="#" className="text-white">
                   <FaRegEnvelope className="fa-fw me-2" />
-                  info@swhizz.com
+                   connect.veltrixit.inswhizz.com
                 </a>
               </p>
               <p className="mb-0 small">

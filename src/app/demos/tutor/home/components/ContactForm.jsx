@@ -40,7 +40,7 @@ const ContactForm = () => {
                   <h6>Email</h6>
                   <p className="h6 mb-0">
                     <a href="#" className="text-primary-hover fw-light stretched-link">
-                      info@swhizz.com
+                       connect.veltrixit.inswhizz.com
                     </a>
                   </p>
                 </Card>

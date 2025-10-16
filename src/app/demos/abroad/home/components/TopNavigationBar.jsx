@@ -54,7 +54,7 @@ const TopNavigationBar = () => {
                   </Dropdown>
                   <NavItem as={'li'}>
                     <a className="nav-link" href="#">
-                      Swhizz business
+                      VELTRIX IT SOLUTIONS PRIVATE LIMITED business
                     </a>
                   </NavItem>
                   <NavItem as={'li'}>
