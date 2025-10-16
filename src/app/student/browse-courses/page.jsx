@@ -5,14 +5,19 @@ import { useEffect, useState } from 'react';
 import httpClient from '@/helpers/httpClient';
 import { BsArrowRepeat, BsCheck, BsPlayCircle } from 'react-icons/bs';
 import { FaAngleLeft, FaAngleRight, FaSearch } from 'react-icons/fa';
+
 const CourseData = ({
+  id,
   completedLectures,
   image,
   name,
   totalLectures,
+  enrollable,
+  onEnroll,
 }) => {
-  const percentage = Math.trunc((completedLectures * 100) / (totalLectures || 1));
-  return <tr>
+  const percentage = totalLectures ? Math.trunc(completedLectures * 100 / totalLectures) : 0;
+  return (
+    <tr>
       <td>
         <div className="d-flex align-items-center">
           <div className="w-100px">
@@ -24,9 +29,18 @@ const CourseData = ({
             </h6>
             <div className="overflow-hidden">
               <h6 className="mb-0 text-end">{percentage}%</h6>
-              <ProgressBar now={percentage} className="progress progress-sm bg-opacity-10 aos" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-              width: '100%'
-            }} aria-valuenow={100} aria-valuemin={0} aria-valuemax={100} />
+              <ProgressBar
+                now={percentage}
+                className="progress progress-sm bg-opacity-10 aos"
+                data-aos="slide-right"
+                data-aos-delay={200}
+                data-aos-duration={1000}
+                data-aos-easing="ease-in-out"
+                style={{ width: '100%' }}
+                aria-valuenow={100}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              />
             </div>
           </div>
         </div>
@@ -34,70 +48,85 @@ const CourseData = ({
       <td>{totalLectures}</td>
       <td>{completedLectures}</td>
       <td>
-        {percentage === 100 ? (
-          <>
-            <button className="btn btn-sm btn-success me-1 mb-1 mb-x;-0 disabled">
-              <BsCheck className="me-1 icons-center" />
-              Complete
-            </button>
-            &nbsp;
-            <Button variant="light" size="sm" className="me-1">
-              <BsArrowRepeat className="me-1 icons-center" />
-              Restart
-            </Button>
-          </>
-        ) : (
-          <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0 icons-center">
-            <BsPlayCircle className="me-1 " />
-            Continue
+        {enrollable ? (
+          <Button variant="success" size="sm" className="me-1 mb-1 mb-md-0" onClick={() => onEnroll?.(id)}>
+            Enroll
           </Button>
+        ) : (
+          percentage === 100 ? (
+            <>
+              <button className="btn btn-sm btn-success me-1 mb-1 mb-x;-0 disabled">
+                <BsCheck className="me-1 icons-center" />
+                Complete
+              </button>
+              &nbsp;
+              <Button variant="light" size="sm" className="me-1">
+                <BsArrowRepeat className="me-1 icons-center" />
+                Restart
+              </Button>
+            </>
+          ) : (
+            <Button variant="primary-soft" size="sm" className="me-1 mb-1 mb-md-0 icons-center">
+              <BsPlayCircle className="me-1 " />
+              Continue
+            </Button>
+          )
         )}
       </td>
-    </tr>;
+    </tr>
+  );
 };
-const CourseListPage = () => {
+
+const StudentBrowseCoursesPage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setError('');
-        setLoading(true);
-        const res = await httpClient.get('/students/me/enrollments');
-        const mapped = (res.data || []).map((en) => {
-          const course = en.course || {};
-          const totalLectures = Array.isArray(course.lessons) ? course.lessons.length : 0;
-          const completedLectures = totalLectures
-            ? Array.from(Object.values(en.progressByLessonId || {})).filter(Boolean).length
-            : 0;
-          return {
-            name: course.title || 'Untitled course',
-            image: course.thumbnailUrl || course.image || '/logo.svg',
-            totalLectures,
-            completedLectures,
-          };
-        });
-        setItems(mapped);
-      } catch (e) {
-        setError(e?.response?.data?.error || 'Failed to load enrollments');
-        setItems([]);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
-  return <>
-      <PageMetaData title="My Courses" />
+  async function loadCourses(query) {
+    try {
+      setError('');
+      setLoading(true);
+      const { data } = await httpClient.get('/courses', { params: query ? { q: query } : {} });
+      console.log(data);
+      const mapped = (data || []).map(course => ({
+        id: course._id,
+        name: course.title || 'Untitled course',
+        image: course.thumbnailUrl || course.image || '/logo.svg',
+        totalLectures: Array.isArray(course.lessons) ? course.lessons.length : 0,
+        completedLectures: 0,
+        enrollable: true,
+      }));
+      setItems(mapped);
+    } catch (e) {
+      setError(e?.response?.data?.error || 'Failed to load courses');
+      setItems([]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => { loadCourses(); }, []);
+
+  async function handleEnroll(courseId) {
+    try {
+      await httpClient.post(`/students/enroll/${courseId}`);
+      setItems(prev => prev.map(it => it.id === courseId ? { ...it, enrollable: false } : it));
+    } catch (e) {
+      console.error('Enroll failed', e);
+    }
+  }
+
+  return (
+    <>
+      <PageMetaData title="Browse Courses" />
       <Card className="bg-transparent border rounded-3">
         <CardHeader className="bg-transparent border-bottom">
-          <h3 className="mb-0">My Courses List</h3>
+          <h3 className="mb-0">Browse Courses</h3>
         </CardHeader>
         <CardBody>
           <Row className="g-3 align-items-center justify-content-between mb-4">
             <Col md={8}>
-              <form className="rounded position-relative">
+              <form className="rounded position-relative" onSubmit={(e) => { e.preventDefault(); const q = e.currentTarget.querySelector('input')?.value || ''; loadCourses(q); }}>
                 <input className="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" />
                 <button className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
                   <FaSearch className="fs-6 " />
@@ -108,7 +137,6 @@ const CourseListPage = () => {
               <form>
                 <ChoicesFormInput className="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
                   <option>Sort by</option>
-                  <option>Free</option>
                   <option>Newest</option>
                   <option>Most popular</option>
                   <option>Most Viewed</option>
@@ -121,32 +149,24 @@ const CourseListPage = () => {
             <table className="table table-dark-gray align-middle p-4 mb-0 table-hover">
               <thead>
                 <tr>
-                  <th scope="col" className="border-0 rounded-start">
-                    Course Title
-                  </th>
-                  <th scope="col" className="border-0">
-                    Total Lectures
-                  </th>
-                  <th scope="col" className="border-0">
-                    Completed Lecture
-                  </th>
-                  <th scope="col" className="border-0 rounded-end">
-                    Action
-                  </th>
+                  <th scope="col" className="border-0 rounded-start">Course Title</th>
+                  <th scope="col" className="border-0">Total Lectures</th>
+                  <th scope="col" className="border-0">Completed Lecture</th>
+                  <th scope="col" className="border-0 rounded-end">Action</th>
                 </tr>
               </thead>
               {items.map((item, idx) => (
                 <tbody key={idx}>
-                  <CourseData {...item} />
+                  <CourseData {...item} onEnroll={handleEnroll} />
                 </tbody>
               ))}
             </table>
           </div>
           {loading && (
-            <div className="text-center py-5 text-muted">Loading enrollments...</div>
+            <div className="text-center py-5 text-muted">Loading courses...</div>
           )}
           {!loading && !items.length && (
-            <div className="text-center py-5 text-muted">No enrollments yet.</div>
+            <div className="text-center py-5 text-muted">No courses available.</div>
           )}
           <div className="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
             <p className="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
@@ -158,19 +178,13 @@ const CourseListPage = () => {
                   </a>
                 </li>
                 <li className="page-item mb-0">
-                  <a className="page-link" href="#">
-                    1
-                  </a>
+                  <a className="page-link" href="#">1</a>
                 </li>
                 <li className="page-item mb-0 active">
-                  <a className="page-link" href="#">
-                    2
-                  </a>
+                  <a className="page-link" href="#">2</a>
                 </li>
                 <li className="page-item mb-0">
-                  <a className="page-link" href="#">
-                    3
-                  </a>
+                  <a className="page-link" href="#">3</a>
                 </li>
                 <li className="page-item mb-0">
                   <a className="page-link" href="#">
@@ -182,6 +196,8 @@ const CourseListPage = () => {
           </div>
         </CardBody>
       </Card>
-    </>;
+    </>
+  );
 };
-export default CourseListPage;
+
+export default StudentBrowseCoursesPage;

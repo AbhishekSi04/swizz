@@ -1,5 +1,7 @@
 import { Col, Row } from 'react-bootstrap';
 import httpClient from '@/helpers/httpClient';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { FaEdit, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import AddToQuestion from './AddToQuestion';
@@ -7,12 +9,24 @@ const Step4 = ({
   stepperInstance,
   courseData
 }) => {
+  const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const goToNextStep = e => {
     e.preventDefault();
     stepperInstance?.next();
   };
   const submitCourse = async () => {
-    await httpClient.post('/courses', courseData);
+    try {
+      setError('');
+      setSubmitting(true);
+      const { data } = await httpClient.post('/courses', courseData);
+      navigate('/instructor/course-added', { state: { course: data } });
+    } catch (e) {
+      setError(e?.response?.data?.error || 'Failed to create course');
+    } finally {
+      setSubmitting(false);
+    }
   };
   return <form id="step-4" onSubmit={goToNextStep} role="tabpanel" className="content fade" aria-labelledby="steppertrigger4">
       <h4>Additional information</h4>
@@ -96,9 +110,10 @@ const Step4 = ({
           <button className="btn btn-secondary prev-btn mb-2 mb-md-0">Previous</button>
           <button className="btn btn-light me-auto ms-md-2 mb-2 mb-md-0">Preview Course</button>
           <div className="text-md-end">
-            <Link to="/instructor/course-added" onClick={submitCourse} className="btn btn-success mb-2 mb-sm-0">
-              Submit a Course
-            </Link>
+            {error && <div className="text-danger small mb-2">{error}</div>}
+            <button type="button" disabled={submitting} onClick={submitCourse} className="btn btn-success mb-2 mb-sm-0">
+              {submitting ? 'Submitting...' : 'Submit a Course'}
+            </button>
             <p className="mb-0 small mt-1">
               Once you click &quot;Submit a Course&quot;, your course will be uploaded and marked as pending for review.
             </p>

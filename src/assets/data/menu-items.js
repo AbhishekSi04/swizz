@@ -162,6 +162,12 @@ export const STUDENT_MENU_ITEMS = [{
   url: '/student/dashboard',
   parentKey: 'student'
 }, {
+  key: 'browse-courses',
+  label: 'Browse Courses',
+  icon: BsBasket,
+  url: '/student/browse-courses',
+  parentKey: 'student'
+}, {
   key: 'subscriptions',
   label: 'My Subscriptions',
   icon: BsCardChecklist,

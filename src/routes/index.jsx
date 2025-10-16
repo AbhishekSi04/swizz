@@ -87,6 +87,7 @@ const DeleteAccount = lazy(() => import('@/app/instructor/delete-account/page'))
 const StudentDashboard = lazy(() => import('@/app/student/dashboard/page'));
 const Subscription = lazy(() => import('@/app/student/subscription/page'));
 const StudentCourseList = lazy(() => import('@/app/student/course-list/page'));
+const StudentBrowseCourses = lazy(() => import('@/app/student/browse-courses/page'));
 const CourseResume = lazy(() => import('@/app/student/course-resume/page'));
 const StudentQuiz = lazy(() => import('@/app/student/quiz/page'));
 const PaymentInfo = lazy(() => import('@/app/student/payment-info/page'));
@@ -388,6 +389,10 @@ export const studentRoutes = [{
   path: '/student/dashboard',
   name: 'Dashboard',
   element: <StudentDashboard />
+}, {
+  path: '/student/browse-courses',
+  name: 'Browse Courses',
+  element: <StudentBrowseCourses />
 }, {
   path: '/student/subscription',
   name: 'Subscription',

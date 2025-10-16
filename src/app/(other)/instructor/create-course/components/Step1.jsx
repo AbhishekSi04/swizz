@@ -54,7 +54,7 @@ const Step1 = ({
         </Col>
         <Col md={6}>
           <label className="form-label">Course category</label>
-          <ChoicesFormInput className="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" data-search-enabled="true">
+          <ChoicesFormInput className="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" data-search-enabled="true" value={courseData.category} onChange={e => updateCourse({ category: e.target.value })}>
             <option value="general">General</option>
             <option value="engineering">Engineering</option>
             <option value="medical">Medical</option>
@@ -85,7 +85,7 @@ const Step1 = ({
         </Col>
         <Col md={6} className=" d-flex align-items-center justify-content-start mt-5">
           <div className="form-check form-switch form-check-md">
-            <input className="form-check-input" type="checkbox" id="checkPrivacy1" />
+            <input className="form-check-input" type="checkbox" id="checkPrivacy1" checked={Boolean(courseData.published)} onChange={e => updateCourse({ published: e.target.checked })} />
             <label className="form-check-label" htmlFor="checkPrivacy1">
               Check this for featured course
             </label>
