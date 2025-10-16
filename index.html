@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <!-- Favicon temporarily removed to hide logo during loading -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swhizz — Top-notch Software Training Institute in Hyderabad</title>
 
@@ -37,17 +36,15 @@
       }
     }
   </style>
-
 </head>
 
 <body>
   <div id="root"></div>
-  <div id="splash-screen">
-    <!-- Logo hidden for now -->
-  </div>
+  <div id="splash-screen"></div>
+
   <script type="module" src="/src/main"></script>
   <script>
-    const rootEl = document.querySelector('#root')
+    const rootEl = document.querySelector('#root');
     new MutationObserver(() => {
       document.querySelector('#splash-screen')?.classList.add('remove');
     }).observe(rootEl, { childList: true });
