@@ -41,6 +41,12 @@ const TopNavbar1 = () => {
                   <li className="nav-item d-flex align-items-center mt-2 mt-md-0">
                     <Link className="btn btn-sm btn-primary" to="/demos/default/home/contact">Contact Us</Link>
                   </li>
+                  {/* Mobile-only: show profile when authenticated */}
+                  {isAuthenticated && (
+                    <li className="nav-item d-flex align-items-center mt-2 d-md-none">
+                      <ProfileDropdown className="ms-0" />
+                    </li>
+                  )}
                   {!isAuthenticated && (
                     <li className="nav-item d-flex align-items-center gap-2 mt-2 d-md-none">
                       <Link className="btn btn-sm btn-outline-primary" to="/auth/sign-in">Sign In</Link>
