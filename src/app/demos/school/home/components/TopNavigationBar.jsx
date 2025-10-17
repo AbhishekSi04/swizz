@@ -17,7 +17,7 @@ const TopNavigationBar = () => {
       <Container>
         <Link className="navbar-brand" to="/">
           <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          {/* <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
         </Link>
         <TopbarMenuToggler />
         <AppMenu mobileMenuOpen={appMenuControl.open} />

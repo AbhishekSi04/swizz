@@ -37,7 +37,7 @@ const TopNavigationBar = () => {
       <Container>
         <Link className="navbar-brand me-0" to="/">
           <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          {/* <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
         </Link>
         <button onClick={appMenuControl.toggle} className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">
           <span className="navbar-toggler-animation">

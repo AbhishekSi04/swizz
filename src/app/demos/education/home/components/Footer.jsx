@@ -14,7 +14,7 @@ const Footer = () => {
       <Container>
         <Row className="mx-auto">
           <Col lg={6} className="mx-auto text-center my-5">
-            <img className="mx-auto h-40px" src={logoLight} alt="logo" />
+            {/* <img className="mx-auto h-40px" src={logoLight} alt="logo" /> */}
             <p className="mt-3 text-white">
               VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
             </p>

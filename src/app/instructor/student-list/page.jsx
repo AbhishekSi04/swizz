@@ -8,7 +8,67 @@ import ChoicesFormInput from '@/components/form/ChoicesFormInput';
 import PageMetaData from '@/components/PageMetaData';
 import { Button, Card, CardBody, CardHeader, Col, Row } from 'react-bootstrap';
 import { FaAngleLeft, FaAngleRight, FaBan, FaMapMarkerAlt, FaRegEnvelope, FaSearch } from 'react-icons/fa';
+import { useEffect, useMemo, useState } from 'react';
+import api from '@/helpers/httpClient';
+import useQueryParams from '@/hooks/useQueryParams';
 const StudentListPage = () => {
+  const query = useQueryParams();
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [search, setSearch] = useState('');
+  const [sortBy, setSortBy] = useState('');
+
+  useEffect(() => {
+    let ignore = false;
+    async function run() {
+      setLoading(true);
+      setError('');
+      try {
+        const params = {};
+        if (query.courseId) params.courseId = query.courseId;
+        if (search) params.q = search;
+        const { data } = await api.get('/students/instructor/enrollments', { params });
+        if (!ignore) setItems(Array.isArray(data) ? data : []);
+      } catch (e) {
+        if (!ignore) setError('Failed to load students');
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+    run();
+    return () => {
+      ignore = true;
+    };
+  }, [query.courseId]);
+
+  const sortedItems = useMemo(() => {
+    const arr = [...items];
+    if (sortBy === 'Newest') arr.sort((a, b) => new Date(b.enrolledAt) - new Date(a.enrolledAt));
+    else if (sortBy === 'Oldest') arr.sort((a, b) => new Date(a.enrolledAt) - new Date(b.enrolledAt));
+    return arr;
+  }, [items, sortBy]);
+
+  const onSearchSubmit = (e) => {
+    e.preventDefault();
+    // re-fetch with search
+    (async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const params = {};
+        if (query.courseId) params.courseId = query.courseId;
+        if (search) params.q = search;
+        const { data } = await api.get('/students/instructor/enrollments', { params });
+        setItems(Array.isArray(data) ? data : []);
+      } catch (e) {
+        setError('Failed to load students');
+      } finally {
+        setLoading(false);
+      }
+    })();
+  };
+
   return <>
       <PageMetaData title="Student List" />
       <Card className="border bg-transparent rounded-3">
@@ -18,8 +78,8 @@ const StudentListPage = () => {
         <CardBody>
           <Row className="g-3 align-items-center justify-content-between mb-4">
             <Col md={8}>
-              <form className="rounded position-relative">
-                <input className="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" />
+              <form className="rounded position-relative" onSubmit={onSearchSubmit}>
+                <input className="form-control pe-5 bg-transparent" value={search} onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Search by name or email" aria-label="Search" />
                 <button className="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
                   <FaSearch className="fas fa-search fs-6 " />
                 </button>
@@ -27,11 +87,10 @@ const StudentListPage = () => {
             </Col>
             <Col md={3}>
               <form>
-                <ChoicesFormInput className="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
-                  <option>Sort by</option>
-                  <option>Free</option>
-                  <option>Newest</option>
-                  <option>Oldest</option>
+                <ChoicesFormInput value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
+                  <option value="">Sort by</option>
+                  <option value="Newest">Newest</option>
+                  <option value="Oldest">Oldest</option>
                 </ChoicesFormInput>
               </form>
             </Col>
@@ -58,251 +117,73 @@ const StudentListPage = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar1} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Lori Stevens
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1 " />
-                          Mumbai
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">85%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '85%'
-                      }} aria-valuenow={85} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>10</td>
-                  <td>4/1/2023</td>
-                  <td>
-                    <Button variant="success-soft" className="btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope size={15} className="far fa-envelope" />
-                    </Button>
-                    <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
-                      <FaBan size={15} className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar3} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Dennis Barrett
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1" />
-                          New york
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">40%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '40%'
-                      }} aria-valuenow={40} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>12</td>
-                  <td>9/1/2023</td>
-                  <td>
-                    <a href="#" className="btn btn-success-soft btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope className="far fa-envelope" />
-                    </a>
-                    <button className="btn btn-danger btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Unblock">
-                      <FaBan className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar4} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Billy Vasquez
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1" />
-                          Paris
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">62%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '62%'
-                      }} aria-valuenow={62} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>08</td>
-                  <td>10/1/2023</td>
-                  <td>
-                    <a href="#" className="btn btn-success-soft btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope className="far fa-envelope" />
-                    </a>
-                    <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
-                      <FaBan className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar9} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Carolyn Ortiz
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1" />
-                          Delhi
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">60%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '60%'
-                      }} aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>06</td>
-                  <td>20/1/2023</td>
-                  <td>
-                    <a href="#" className="btn btn-success-soft btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope className="far fa-envelope" />
-                    </a>
-                    <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
-                      <FaBan className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar7} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Larry Lawson
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1 " />
-                          London
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">35%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '35%'
-                      }} aria-valuenow={35} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>04</td>
-                  <td>12/1/2023</td>
-                  <td>
-                    <a href="#" className="btn btn-success-soft btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope className="far fa-envelope" />
-                    </a>
-                    <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
-                      <FaBan className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center position-relative">
-                      <div className="avatar avatar-md mb-2 mb-md-0">
-                        <img src={avatar6} className="rounded" alt="avatar" />
-                      </div>
-                      <div className="mb-0 ms-2">
-                        <h6 className="mb-0">
-                          <a href="#" className="stretched-link">
-                            Frances Guerrero
-                          </a>
-                        </h6>
-                        <span className="text-body small">
-                          <FaMapMarkerAlt className="me-1 " />
-                          Pune
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-center text-sm-start">
-                    <div className=" overflow-hidden">
-                      <h6 className="mb-0">42%</h6>
-                      <div className="progress progress-sm bg-primary bg-opacity-10">
-                        <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
-                        width: '42%'
-                      }} aria-valuenow={42} aria-valuemin={0} aria-valuemax={100}></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>14</td>
-                  <td>8/1/2023</td>
-                  <td>
-                    <a href="#" className="btn btn-success-soft btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                      <FaRegEnvelope className="far fa-envelope" />
-                    </a>
-                    <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
-                      <FaBan className="fas fa-ban" />
-                    </button>
-                  </td>
-                </tr>
+                {loading && (
+                  <tr>
+                    <td colSpan={5}>Loading...</td>
+                  </tr>
+                )}
+                {error && !loading && (
+                  <tr>
+                    <td colSpan={5} className="text-danger">{error}</td>
+                  </tr>
+                )}
+                {!loading && !error && sortedItems.length === 0 && (
+                  <tr>
+                    <td colSpan={5}>No students found</td>
+                  </tr>
+                )}
+                {!loading && !error && sortedItems.map((row) => {
+                  const avatarFallbacks = [avatar1, avatar3, avatar4, avatar6, avatar7, avatar9];
+                  const avatarSrc = row.student?.avatarUrl || avatarFallbacks[Math.floor(Math.random() * avatarFallbacks.length)];
+                  const city = row.student?.location || '—';
+                  const progress = Number(row.progressPercent || 0);
+                  const enrolledDate = row.enrolledAt ? new Date(row.enrolledAt).toLocaleDateString() : '—';
+                  return (
+                    <tr key={row.id}>
+                      <td>
+                        <div className="d-flex align-items-center position-relative">
+                          <div className="avatar avatar-md mb-2 mb-md-0">
+                            <img src={avatarSrc} className="rounded" alt="avatar" />
+                          </div>
+                          <div className="mb-0 ms-2">
+                            <h6 className="mb-0">
+                              <span className="stretched-link">
+                                {row.student?.name || 'Unnamed'}
+                              </span>
+                            </h6>
+                            <span className="text-body small">
+                              <FaMapMarkerAlt className="me-1 " />
+                              {city}
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="text-center text-sm-start">
+                        <div className=" overflow-hidden">
+                          <h6 className="mb-0">{progress}%</h6>
+                          <div className="progress progress-sm bg-primary bg-opacity-10">
+                            <div className="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{ width: `${progress}%` }} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{row.course?.title || '—'}</td>
+                      <td>{enrolledDate}</td>
+                      <td>
+                        <Button variant="success-soft" className="btn-round me-2 mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
+                          <FaRegEnvelope size={15} className="far fa-envelope" />
+                        </Button>
+                        <button className="btn btn-danger-soft btn-round mb-0 flex-centered" data-bs-toggle="tooltip" data-bs-placement="top" title="Block">
+                          <FaBan size={15} className="fas fa-ban" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
           <div className="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
-            <p className="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+            <p className="mb-0 text-center text-sm-start">Showing {sortedItems.length} entries</p>
             <nav className="d-flex justify-content-center mb-0" aria-label="navigation">
               <ul className="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
                 <li className="page-item mb-0">
@@ -338,3 +219,4 @@ const StudentListPage = () => {
     </>;
 };
 export default StudentListPage;
+

@@ -16,7 +16,7 @@ const TopNavigationBar = () => {
       <Container>
         <Link className="navbar-brand" to="/">
           <img width={170} height={36} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          {/* <img className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
         </Link>
         <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span className="me-2">

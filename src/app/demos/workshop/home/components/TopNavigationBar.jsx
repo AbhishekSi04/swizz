@@ -16,7 +16,7 @@ const TopNavigationBar = () => {
       <Container>
         <Link className="navbar-brand" to="/">
           <img width={170} height={36} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img width={170} height={36} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          {/* <img width={170} height={36} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
         </Link>
         <TopbarMenuToggler />
         <AppMenu mobileMenuOpen={appMenuControl.open} startSearchInput menuClassName="ms-auto" />

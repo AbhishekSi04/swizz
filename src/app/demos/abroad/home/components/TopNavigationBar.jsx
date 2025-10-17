@@ -73,8 +73,8 @@ const TopNavigationBar = () => {
           </Col>
           <Col xs={6} md={4} xl={2} className="text-center d-flex">
             <Link className="navbar-brand mx-auto" to="/">
-              <img className="navbar-brand-item light-mode-item" src={logo} alt="logo" />
-              <img className="navbar-brand-item dark-mode-item" src={logoLight} alt="logo" />
+              {/* <img className="navbar-brand-item light-mode-item" src={logo} alt="logo" /> */}
+              {/* <img className="navbar-brand-item dark-mode-item" src={logoLight} alt="logo" /> */}
             </Link>
           </Col>
           <Col xs={3} md={4} xl={5} className="d-flex justify-content-end pe-0">
