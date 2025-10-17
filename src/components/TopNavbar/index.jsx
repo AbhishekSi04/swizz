@@ -14,7 +14,7 @@ const TopNavbar = ({
       <header ref={headerRef} className={clsx('navbar-light navbar-sticky header-static', className, {
       'navbar-sticky-on': scrollY >= 400
     })}>
-        <nav className="navbar navbar-expand-xl">{children}</nav>
+        <nav className="navbar navbar-expand-xl flex-wrap justify-content-between py-2">{children}</nav>
       </header>
       <div style={{
       height: scrollY >= 400 ? `${headerRef.current?.offsetHeight}px` : 0

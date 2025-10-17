@@ -5,6 +5,89 @@
 
 /*User CSS*/
 
+// Global safe responsive fixes
+html, body {
+  overflow-x: hidden; // prevent accidental horizontal scroll
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+// Navbar tweaks: allow wrapping and spacing on small screens
+.navbar {
+  flex-wrap: wrap;
+}
+
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-lg,
+.navbar > .container-md,
+.navbar > .container-sm,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  gap: .5rem; // breathing space between logo, toggler, menus
+}
+
+// Ensure nav menus can wrap across lines on narrow screens
+.navbar-nav {
+  flex-wrap: wrap;
+}
+
+// Prevent dropdowns from overflowing viewport on mobile
+.dropdown-menu {
+  max-width: 92vw;
+  overflow-wrap: anywhere;
+}
+
+// Placeholder logo box remains invisible but reserves space to avoid layout shift
+.navbar-brand {
+  display: inline-block;
+  min-width: 120px; // space for future logo
+  min-height: 28px;
+}
+
+// Tables: avoid overflow in narrow viewports
+.table {
+  word-break: break-word;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+// Ensure long headings and links wrap instead of overflowing
+h1, h2, h3, h4, h5, h6,
+a, p, .btn {
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+// Cards and grids: allow children to shrink properly inside flex containers
+.card, .card-body, .row, .col, [class^="col-"] {
+  min-width: 0;
+}
+
+// Forms fill width on mobile
+.form-control, .form-select {
+  width: 100%;
+}
+
+// Stepper and similar multi-step components shouldn't overflow
+.bs-stepper .content {
+  min-width: 0;
+}
+
+// Small viewport padding for containers
+@media (max-width: 576px) {
+  .container, .container-fluid,
+  .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+}
+
 // [data-bs-theme="dark"] {
 //   --bs-primary: #19f032 !important;
 //   --bs-primary-rgb: 25, 240, 50 !important;
