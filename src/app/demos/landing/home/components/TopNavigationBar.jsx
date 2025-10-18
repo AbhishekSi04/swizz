@@ -36,16 +36,19 @@ const TopNavigationBar = () => {
   return <TopNavbar className="navbar-transparent">
       <Container>
         <Link className="navbar-brand me-0" to="/">
-          <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
+          {/* <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" /> */}
           {/* <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
         </Link>
-        <button onClick={appMenuControl.toggle} className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">
-          <span className="navbar-toggler-animation">
-            <span />
-            <span />
-            <span />
-          </span>
-        </button>
+        {/* Mobile: place toggler on its own row, right-aligned. Desktop: keep inline. */}
+        <div className="d-xl-none d-flex w-100 justify-content-end">
+          <button onClick={appMenuControl.toggle} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">
+            <span className="navbar-toggler-animation">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
         <AppMenu mobileMenuOpen={appMenuControl.open} menuClassName="ms-auto" />
         <Dropdown>
           <DropdownToggle size="sm" variant="light" className="arrow-none lh-1 p-2 mb-0" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">

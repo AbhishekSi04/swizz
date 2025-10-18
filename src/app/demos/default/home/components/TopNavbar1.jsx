@@ -12,20 +12,20 @@ const TopNavbar1 = () => {
   const { appMenuControl } = useLayoutContext();
   const { isAuthenticated } = useAuthContext();
   return <TopNavbar>
-      <Container fluid className="px-2 px-lg-4 px-xl-5">
+      <Container fluid className="px-2 px-lg-4 px-xl-5 position-relative">
+        {/* Absolute mobile toggler at top-right */}
+        <div className="d-md-none position-absolute end-0 top-0 mt-2 me-2 z-3">
+          <TopbarMenuToggler />
+        </div>
         <div className="row w-100 align-items-center g-2 g-md-3">
           {/* Left: Logo placeholder (kept invisible per request) */}
           <div className="col-6 col-md-3 col-xl-2 d-flex align-items-center order-1">
             <LogoBox height={50} width={180} />
-            {/* Hamburger for mobile */}
-            <div className="ms-auto d-md-none">
-              <TopbarMenuToggler />
-            </div>
           </div>
 
           {/* Center: Primary nav + Auth actions (collapsible on mobile) */}
           <div className="col-12 col-md-6 col-xl-8 d-flex align-items-center justify-content-center order-3 order-md-2">
-            <Collapse in={appMenuControl.open} className="w-100 w-md-auto navbar-collapse d-md-block">
+            <Collapse in={appMenuControl.open} className="w-100 navbar-collapse d-md-block mobile-nav-overlay">
               <div>
                 <ul className="navbar-nav flex-column flex-md-row align-items-center justify-content-center gap-2 gap-md-4 my-2 my-md-0">
                   <li className="nav-item">

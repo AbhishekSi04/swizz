@@ -10,11 +10,11 @@ const TopNavigationBar = () => {
     appMenuControl
   } = useLayoutContext();
   return <TopNavbar>
-      <Container>
+      <Container className="position-relative">
         <LogoBox height={36} width={143} />
         <TopbarMenuToggler />
         <AppMenu mobileMenuOpen={appMenuControl.open} menuClassName="mx-auto" showExtraPages searchInput />
-        <ProfileDropdown className="ms-1 ms-lg-0" />
+        <ProfileDropdown className="d-none d-md-flex ms-1 ms-lg-0" />
       </Container>
     </TopNavbar>;
 };

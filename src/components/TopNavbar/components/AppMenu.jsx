@@ -146,7 +146,7 @@ const AppMenu = ({
     activeMenu();
   }, [activeMenu, filteredMenuItems]);
   const MegamenuData = getMegaMenuItems();
-  return <Collapse in={mobileMenuOpen} className="navbar-collapse collapse">
+  return <Collapse in={mobileMenuOpen} className="navbar-collapse collapse mobile-nav-overlay">
       <div>
         {startSearchInput && <Col xl={7}>
             <div className="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">

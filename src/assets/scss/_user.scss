@@ -10,6 +10,16 @@ html, body {
   overflow-x: hidden; // prevent accidental horizontal scroll
 }
 
+// Centered dropdown utility: place the menu centered below its toggle (avatar)
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  top: 100% !important;         /* ensures it opens directly below the avatar */
+  margin-top: 0.5rem !important; /* adds a small gap between avatar and menu */
+}
+
+
 img, svg {
   max-width: 100%;
   height: auto;
@@ -85,6 +95,131 @@ a, p, .btn {
   .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     padding-left: .75rem;
     padding-right: .75rem;
+  }
+}
+
+// Generic mobile overlay behavior for components using `.mobile-nav-overlay`
+@media (max-width: 991.98px) {
+  // Ensure header containers are positioning context
+  header .navbar > .container,
+  header .navbar > .container-fluid,
+  header .navbar > .container-sm,
+  header .navbar > .container-md,
+  header .navbar > .container-lg,
+  header .navbar > .container-xl,
+  header .navbar > .container-xxl { position: relative; }
+
+  // Pin any navbar toggler to top-right on mobile
+  header .navbar .navbar-toggler {
+    position: absolute;
+    right: .75rem;
+    top: .5rem;
+    margin-left: 0 !important;
+    left: auto !important;
+    z-index: 3;
+  }
+
+  header .mobile-nav-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    background: var(--bs-body-bg);
+    border-top: 1px solid var(--bs-border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    padding: 1rem 1rem 1.25rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  header .mobile-nav-overlay .navbar-nav {
+    width: 100%;
+    align-items: center;
+    gap: .25rem;
+  }
+
+  header .mobile-nav-overlay .navbar-nav .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: .875rem 0;
+  }
+}
+
+// Landing navbar: right-align hamburger on mobile and keep spacing
+@media (max-width: 991.98px) { // < lg
+  header.navbar-transparent {
+    .navbar { position: relative; }
+    .navbar > .container,
+    .navbar > .container-fluid,
+    .navbar > .container-sm,
+    .navbar > .container-md,
+    .navbar > .container-lg,
+    .navbar > .container-xl,
+    .navbar > .container-xxl {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; // brand left, toggler right
+      gap: .5rem;
+      width: 100%;
+    }
+
+    .navbar .navbar-brand {
+      margin-right: 0; // avoid pushing toggler
+      order: 0;
+    }
+
+    .navbar .navbar-toggler {
+      order: 2; // ensure it comes after brand and menu
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      left: auto !important;
+      right: .75rem !important;
+      top: .5rem;
+      position: absolute; // pin to right
+      z-index: 2; // ensure clickable over hero artwork
+    }
+
+    // Keep collapsible menu in the middle order when present
+    .navbar .navbar-collapse { order: 1; }
+
+    // Mobile overlay for collapsed menu
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1050;
+      background: var(--bs-body-bg); // solid bg over hero
+      border-top: 1px solid var(--bs-border-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      padding: 1rem 1rem 1.25rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .navbar-collapse .navbar-nav {
+      width: 100%;
+      align-items: center; // center items
+      gap: .25rem;
+    }
+
+    .navbar-collapse .navbar-nav .nav-link {
+      width: 100%;
+      text-align: center;
+      padding: .875rem 0;
+    }
+
+    .navbar-collapse .dropdown-divider {
+      margin: .5rem auto;
+      width: 80%;
+    }
+
+    // Compact action buttons in menu
+    .navbar-collapse .btn,
+    .navbar-collapse .btn-group .btn {
+      min-width: 120px;
+    }
   }
 }
 

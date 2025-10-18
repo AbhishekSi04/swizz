@@ -46,11 +46,11 @@ const ProfileDropdown = ({
       <Link to="/auth/sign-up" className="btn btn-sm btn-outline-primary">Sign Up</Link>
     </div>;
   }
-  return <Dropdown drop="start" className={className}>
+  return <Dropdown className={className}>
       <DropdownToggle as="a" className="avatar avatar-sm p-0 arrow-none" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
         <img className="avatar-img rounded-circle" src={user?.avatarUrl || avatar1} alt="avatar" />
       </DropdownToggle>
-      <DropdownMenu as="ul" className="dropdown-animation dropdown-menu-end shadow pt-3 custom-navbar-dropdown-menu" aria-labelledby="profileDropdown">
+      <DropdownMenu as="ul" className="dropdown-animation shadow pt-3 custom-navbar-dropdown-menu dropdown-menu-center" aria-labelledby="profileDropdown" data-bs-popper="none">
         <li className="px-3 mb-3">
           <div className="d-flex align-items-center">
             <div className="avatar me-3">
