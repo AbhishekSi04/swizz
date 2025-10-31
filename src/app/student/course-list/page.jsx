@@ -15,19 +15,19 @@ const CourseData = ({
   return <tr>
       <td>
         <div className="d-flex align-items-center">
-          <div className="w-100px">
+          {/* <div className="w-100px">
             <img src={image} className="rounded" alt="courses" />
-          </div>
+          </div> */}
           <div className="mb-0 ms-2">
             <h6>
               <a href="#">{name}</a>
             </h6>
-            <div className="overflow-hidden">
+            {/* <div className="overflow-hidden">
               <h6 className="mb-0 text-end">{percentage}%</h6>
               <ProgressBar now={percentage} className="progress progress-sm bg-opacity-10 aos" data-aos="slide-right" data-aos-delay={200} data-aos-duration={1000} data-aos-easing="ease-in-out" style={{
               width: '100%'
             }} aria-valuenow={100} aria-valuemin={0} aria-valuemax={100} />
-            </div>
+            </div> */}
           </div>
         </div>
       </td>
