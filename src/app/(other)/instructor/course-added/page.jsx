@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import TopNavigationBar from './components/TopNavigationBar';
 const CourseAddedPage = () => {
   return <>
-      <TopNavigationBar />
+      {/* <TopNavigationBar /> */}
       <main>
         <section className="overflow-hidden pt-0 pt-sm-5">
           <Container>
