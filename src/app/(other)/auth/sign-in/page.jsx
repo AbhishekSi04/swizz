@@ -15,6 +15,7 @@ const SignInPage = () => {
               <h1 className="fs-2">Login into VELTRIX IT SOLUTIONS PRIVATE LIMITED!</h1>
               <p className="lead mb-4">Nice to see you! Please log in with your account.</p>
               <SignIn />
+              {/* Social login section commented out
               <Row>
                 <div className="position-relative my-4">
                   <hr />
@@ -33,6 +34,7 @@ const SignInPage = () => {
                   </a>
                 </Col>
               </Row>
+              */}
               <div className="mt-4 text-center">
                 <span>
                   Don&apos;t have an account? <Link to="/auth/sign-up">Signup here</Link>

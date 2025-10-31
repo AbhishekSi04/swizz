@@ -46,11 +46,29 @@ const ProfileDropdown = ({
       <Link to="/auth/sign-up" className="btn btn-sm btn-outline-primary">Sign Up</Link>
     </div>;
   }
-  return <Dropdown className={className}>
+  return <Dropdown className={`${className} position-relative`}>
       <DropdownToggle as="a" className="avatar avatar-sm p-0 arrow-none" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
         <img className="avatar-img rounded-circle" src={user?.avatarUrl || avatar1} alt="avatar" />
       </DropdownToggle>
-      <DropdownMenu as="ul" className="dropdown-animation shadow pt-3 custom-navbar-dropdown-menu dropdown-menu-center" aria-labelledby="profileDropdown" data-bs-popper="none">
+      <DropdownMenu 
+        as="ul" 
+        className="dropdown-animation shadow pt-3 custom-navbar-dropdown-menu"
+        style={{
+          position: 'absolute',
+          right: 0,
+          left: 'auto',
+          minWidth: '280px',
+          marginTop: '0.5rem',
+          transform: 'translateX(-25%)',
+          '@media (max-width: 991.98px)': {
+            transform: 'none',
+            right: 0,
+            left: 0
+          }
+        }}
+        aria-labelledby="profileDropdown" 
+        data-bs-popper="none"
+      >
         <li className="px-3 mb-3">
           <div className="d-flex align-items-center">
             <div className="avatar me-3">

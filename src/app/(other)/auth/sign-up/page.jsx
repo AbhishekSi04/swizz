@@ -16,6 +16,7 @@ const SignUpPage = () => {
               <h2>Sign up for your account!</h2>
               <p className="lead mb-4">Nice to see you! Please Sign up with your account.</p>
               <SingUpForm />
+              {/* Social login section commented out
               <Row>
                 <div className="position-relative my-4">
                   <hr />
@@ -34,6 +35,7 @@ const SignUpPage = () => {
                   </a>
                 </Col>
               </Row>
+              */}
               <div className="mt-4 text-center">
                 <span>
                   Already have an account?<Link to="/auth/sign-in"> Sign in here</Link>
