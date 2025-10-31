@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { topCoursesData } from '../data';
 const TopCourses = () => {
-  return <section className="position-relative pb-0 pb-sm-5">
+  return <section id="popular-courses" className="position-relative pb-0 pb-sm-5">
       <Container>
         <Row className="mb-4">
           <Col lg={8} className="mx-auto text-center">

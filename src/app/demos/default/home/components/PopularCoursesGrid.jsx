@@ -77,7 +77,7 @@ const CoursesGridCard = ({ course }) => (
 
 const PopularCoursesGrid = () => {
   return (
-    <section id="popular-courses" className="popular-courses-section">
+    <section id="popular-courses" className="popular-courses-section pt-5" style={{ scrollMarginTop: '100px' }}>
       <Container>
         <div className="text-center mb-4">
           <h2 className="section-title">POPULAR COURSES</h2>

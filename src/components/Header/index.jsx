@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaChevronDown, FaSearch, FaUser, FaShoppingCart } from 'react-icons/fa';
 import './styles.css';
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const [activeNav, setActiveNav] = useState('home');
+  const location = useLocation();
+
+  const scrollToPopularCourses = () => {
+    const element = document.getElementById('popular-courses');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else if (location.pathname !== '/') {
+      window.location.href = '/#popular-courses';
+    }
+  };
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -74,7 +84,13 @@ const Header = () => {
                       show={expanded && activeNav === item.id}
                       onMouseEnter={() => setActiveNav(item.id)}
                       onMouseLeave={() => setActiveNav('')}
-                      onClick={() => setExpanded(false)}
+                      onClick={(e) => {
+                        if (e.target === e.currentTarget || e.target.tagName === 'SPAN') {
+                          e.preventDefault();
+                          scrollToPopularCourses();
+                        }
+                        setExpanded(false);
+                      }}
                     >
                       <div className="dropdown-menu-mega">
                         <Container>

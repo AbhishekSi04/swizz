@@ -1,5 +1,5 @@
 import TopNavbar from '@/components/TopNavbar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button, Container, Dropdown, DropdownMenu, DropdownToggle } from 'react-bootstrap';
 import logo from '@/assets/images/logo.svg';
 import logoLight from '@/assets/images/logo-light.svg';
@@ -13,6 +13,19 @@ const TopNavigationBar = () => {
     theme,
     appMenuControl
   } = useLayoutContext();
+  const location = useLocation();
+  
+  const scrollToPopularCourses = () => {
+    const element = document.getElementById('popular-courses');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      return true;
+    } else if (location.pathname !== '/') {
+      window.location.href = '/#popular-courses';
+      return true;
+    }
+    return false;
+  };
   const themeModes = [{
     icon: <svg xmlns="http://www.w3.org/2000/svg" width={14} height={14} fill="currentColor" className="bi bi-circle-half fa-fw theme-icon-active" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
@@ -49,7 +62,11 @@ const TopNavigationBar = () => {
             </span>
           </button>
         </div>
-        <AppMenu mobileMenuOpen={appMenuControl.open} menuClassName="ms-auto" />
+        <AppMenu 
+          mobileMenuOpen={appMenuControl.open} 
+          menuClassName="ms-auto" 
+          onCoursesClick={scrollToPopularCourses}
+        />
         <Dropdown>
           <DropdownToggle size="sm" variant="light" className="arrow-none lh-1 p-2 mb-0" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
             <svg xmlns="http://www.w3.org/2000/svg" width={14} height={14} fill="currentColor" className="bi bi-circle-half fa-fw theme-icon-active" viewBox="0 0 16 16">

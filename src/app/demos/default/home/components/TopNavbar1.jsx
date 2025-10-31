@@ -32,7 +32,19 @@ const TopNavbar1 = () => {
                     <Link className="nav-link px-2" to="/pages/about/about-us">About Us</Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link px-2" href="/demos/default/home#popular-courses">Courses</a>
+                    <Link 
+                      className="nav-link px-2" 
+                      to="#popular-courses"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById('popular-courses');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                    >
+                      Courses
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link px-2" to="/pages/services">Services</Link>

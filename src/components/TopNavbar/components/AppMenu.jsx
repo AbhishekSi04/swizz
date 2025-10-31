@@ -19,12 +19,25 @@ export const MenuItemWithChildren = ({
   activeMenuItems,
   itemClassName,
   linkClassName,
-  level
+  level,
+  onCoursesClick
 }) => {
   const level1 = level === 1;
   const Icon = item.icon;
   return <Dropdown as="li" className={itemClassName} drop={level >= 2 ? 'end' : undefined}>
-      <DropdownToggle as={'a'} className={linkClassName} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <DropdownToggle 
+        as={'a'} 
+        className={linkClassName} 
+        data-bs-toggle="dropdown" 
+        aria-haspopup="true" 
+        aria-expanded="false"
+        onClick={(e) => {
+          if (onCoursesClick && onCoursesClick()) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }}
+      >
         <div className="icons-center">
           {Icon && <Icon className="me-1 fa-fw me-1" />}
           {item.label}
@@ -106,7 +119,8 @@ const AppMenu = ({
   showCategories,
   searchInput,
   showMegaMenu,
-  startSearchInput
+  startSearchInput,
+  onCoursesClick
 }) => {
   const [activeMenuItems, setActiveMenuItems] = useState([]);
   const menuItems = getAppMenuItems();
@@ -172,9 +186,16 @@ const AppMenu = ({
         <ul className={clsx('navbar-nav navbar-nav-scroll', menuClassName)}>
           {(filteredMenuItems ?? []).map((item, idx) => {
             return <Fragment key={item.key + idx}>
-                {item.children ? <MenuItemWithChildren item={item} activeMenuItems={activeMenuItems} level={1} itemClassName="nav-item cursor-pointer" linkClassName={clsx('nav-link arrow-none d-flex align-items-center gap-1 justify-content-between', {
-              active: activeMenuItems.includes(item.key)
-            })} /> : <MenuItem item={item} level={1} linkClassName={clsx(activeMenuItems.includes(item.key) && 'active')} />}
+                  {item.children ? <MenuItemWithChildren 
+                item={item} 
+                activeMenuItems={activeMenuItems} 
+                level={1} 
+                itemClassName="nav-item cursor-pointer" 
+                linkClassName={clsx('nav-link arrow-none d-flex align-items-center gap-1 justify-content-between', {
+                  active: activeMenuItems.includes(item.key)
+                })}
+                onCoursesClick={item.key === 'category' ? onCoursesClick : undefined}
+              /> : <MenuItem item={item} level={1} linkClassName={clsx(activeMenuItems.includes(item.key) && 'active')} />}
               </Fragment>;
         })}
           {showMegaMenu && <Dropdown className="nav-item  dropdown-fullwidth">

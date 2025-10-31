@@ -24,4 +24,4 @@ const HomePage = () => {
       <Footer />
     </>;
 };
-export default HomePage;
+export default HomePage
