@@ -1,5 +1,5 @@
-import logoMobileLightImg from '@/assets/images/logo-mobile-light.svg';
-import logoMobileImg from '@/assets/images/logo-mobile.svg';
+import logoMobileLightImg from '@/assets/images/veltrixLogo.png';
+import logoMobileImg from '@/assets/images/veltrixLogo.png';
 import ProfileDropdown from '@/components/TopNavbar/components/ProfileDropdown';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import useToggle from '@/hooks/useToggle';

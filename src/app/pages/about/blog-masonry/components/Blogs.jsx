@@ -165,7 +165,7 @@ const Blogs = () => {
                     Choose your direction
                   </a>
                 </CardTitle>
-                <p className="text-white mb-0">https://stackbros.in/</p>
+                <p className="text-white mb-0">https://20s Developers.in/</p>
               </CardBody>
             </Card>
           </Col>

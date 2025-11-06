@@ -28,7 +28,7 @@ const Achievements = () => {
         <Row className="mb-4 text-center">
           <Col lg={10} className="mx-auto">
             <h2 className="section-title">Milestones of Excellence</h2>
-            <p className="text-muted">Our journey towards empowering careers</p>
+            <p className="text-dark-mode-white">Our journey towards empowering careers</p>
           </Col>
         </Row>
 
@@ -42,7 +42,7 @@ const Achievements = () => {
                       <span className="check-icon"><BsCheck2Circle /></span>
                       <div>
                         <strong className="text-primary me-2">{m.year} –</strong>
-                        <span className="text-body">{m.text}</span>
+                        <span className="text-white">{m.text}</span>
                       </div>
                     </li>
                   ))}
@@ -54,8 +54,8 @@ const Achievements = () => {
           <Col lg={5}>
             <Card className="shadow-sm h-100 card-dark">
               <Card.Body>
-                <h3 className="h4 mb-3">Why VELTRIX IT SOLUTIONS PRIVATE LIMITED?</h3>
-                <ul className="list-unstyled mb-0 highlights-list">
+                <h3 className="h4 mb-3 text-white ">Why VELTRIX IT SOLUTIONS PRIVATE LIMITED?</h3>
+                <ul className="list-unstyled mb-0 pt-3 highlights-list">
                   {HIGHLIGHTS.map((h, i) => (
                     <li key={i} className="d-flex align-items-start gap-3 mb-3">
                       <div className="highlight-icon">{h.icon}</div>

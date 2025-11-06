@@ -3,53 +3,33 @@ export const footerLinks = [{
   title: 'Company',
   items: [{
     name: 'About us',
-    link: '/about'
+    link: '/pages/about/about-us'
   }, {
     name: 'Contact us',
-    link: '/contact'
-  }, {
-    name: 'News and Blogs'
-  }, {
-    name: 'Library'
-  }, {
-    name: 'Career'
-  }]
-}, {
-  title: 'Community',
-  items: [{
-    name: 'Documentation'
-  }, {
-    name: 'Faq',
-    link: '/help/faq'
-  }, {
-    name: 'Form'
-  }, {
-    name: 'Sitemap'
-  }]
-}, {
-  title: 'Teaching',
-  items: [{
-    name: 'Become a teacher'
-  }, {
-    name: 'How to guide',
-    link: '/help/faq'
-  }, {
-    name: 'Term & condition'
+    link: '/help/contact-us'
+  },{
+    name: 'Career',
+    link: '/pages/career'
   }]
 }];
 export const footerLinks2 = [{
   name: 'About',
   link: '/pages/about/about-us'
 }, {
-  name: 'Terms'
+  name: 'Terms',
+  link: '/pages/terms'
 }, {
-  name: 'Privacy'
+  name: 'Privacy',
+  link: '/pages/privacy-policy'
 }, {
-  name: 'Career'
+  name: 'Career',
+  link: '/pages/career'
 }, {
-  name: 'Contact us'
+  name: 'Contact us',
+  link: '/help/contact-us'
 }, {
-  name: 'Cookies'
+  name: 'Cookies',
+  link: '/pages/cookie-policy'
 }];
 export const socialMediaLinks = [{
   icon: FaFacebookF,

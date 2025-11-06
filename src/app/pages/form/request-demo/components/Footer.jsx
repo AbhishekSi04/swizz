@@ -5,8 +5,8 @@ import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaTwitterSquare } from
 
 // import { footerItems } from "../data"
 
-import logoLight from '@/assets/images/logo-light.svg';
-import logo from '@/assets/images/logo.svg';
+import logoLight from '@/assets/images/veltrixLogo.png';
+import logo from '@/assets/images/veltrixLogo.png';
 import clsx from 'clsx';
 import { footerItems } from '../data';
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
               {/* <img height={40} width={189} className="dark-mode-item h-40px" src={logoLight} alt="logo" /> */}
             </Link>
             <p className="my-3">
-              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </p>
             <form className="row row-cols-lg-auto g-2">
               <Col xs={12}>

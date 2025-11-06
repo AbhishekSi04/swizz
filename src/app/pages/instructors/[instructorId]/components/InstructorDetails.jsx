@@ -181,7 +181,7 @@ const InstructorDetails = () => {
                   <FaGlobe className="text-primary me-1 me-sm-3" />
                   Website:
                 </span>
-                <span>https://stackbros.in/</span>
+                <span>https://20s Developers.in/</span>
               </li>
             </ul>
 

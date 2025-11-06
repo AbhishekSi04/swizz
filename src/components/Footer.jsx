@@ -3,8 +3,8 @@ import { Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, R
 import { FaChevronUp, FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { currentYear, developedBy, developedByLink } from '@/context/constants';
 import clsx from 'clsx';
-import logo from '@/assets/images/logo.svg';
-import logoLight from '@/assets/images/logo-light.svg';
+import logo from '@/assets/images/veltrixLogo.png';
+import logoLight from '@/assets/images/veltrixLogo.png';
 import googlePlay from '@/assets/images/client/google-play.svg';
 import playStore from '@/assets/images/client/app-store.svg';
 import ukFlag from '@/assets/images/flags/uk.svg';
@@ -22,8 +22,8 @@ const Footer = ({
               {/* <img className="light-mode-item h-40px" width={189} height={40} src={logo} alt="VELTRIX IT SOLUTIONS" />
               <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="VELTRIX IT SOLUTIONS" /> */}
             </Link>
-            <p className="my-3">
-              VELTRIX IT SOLUTIONS is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+            <p className="my-3 text-theme-body">
+              VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support..
             </p>
             <ul className="list-inline mb-0 mt-3">
               <li className="list-inline-item">
@@ -52,13 +52,13 @@ const Footer = ({
               </li>
             </ul>
           </Col>
-          <Col lg={6}>
+          <Col lg={4}>
             <Row className="g-4">
               {footerLinks.map((link, idx) => <Col xs={6} md={4} key={idx}>
-                  <h5 className="mb-2 mb-md-4">{link.title}</h5>
+                  <h5 className="mb-2 mb-md-4 text-dark-mode-white">{link.title}</h5>
                   <ul className="nav flex-column">
                     {link.items.map((item, idx) => <li className="nav-item" key={idx}>
-                        <Link className="nav-link" to={item.link ?? ''}>
+                        <Link className="nav-link text-theme-body" to={item.link ?? ''}>
                           {item.name}
                         </Link>
                       </li>)}
@@ -67,13 +67,13 @@ const Footer = ({
             </Row>
           </Col>
           <Col lg={3}>
-            <h5 className="mb-2 mb-md-4">Contact</h5>
-            <p className="mb-2">
-              Phone:<span className="h6 fw-light ms-2">7093393511</span>
-              <span className="d-block small">(9:AM to 8:PM IST)</span>
+            <h5 className="mb-2 mb-md-4 text-dark-mode-white">Contact</h5>
+            <p className="mb-2 text-theme-body">
+              Phone:<span className="h6 fw-light ms-2 text-dark-mode-white">7093393511</span>
+              <span className="d-block small text-theme-muted">(9:AM to 8:PM IST)</span>
             </p>
-            <p className="mb-0">
-              Email:<span className="h6 fw-light ms-2">connect.veltrixit.in</span>
+            <p className="mb-0 text-theme-body">
+              Email:<span className="h6 fw-light ms-2 text-dark-mode-white">connect.veltrixit.in</span>
             </p>
             <Row className="g-2 mt-2">
               <Col xs={6} sm={4} md={3} lg={6}>

@@ -20,21 +20,33 @@
   border-radius: 6px;
 }
 
-.course-card .course-card-img-wrap {
-  height: 150px;
+.course-card-img-wrap {
+  width: 100%;
+  height: 200px; /* or whatever height you want */
   overflow: hidden;
-  border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
+  border-radius: 10px; /* optional */
 }
 
-.course-card img.card-img-top {
+.course-card-img-wrap {
+  width: 100%;
+  height: 160px; /* adjust to fit your design */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #1e1e1e; /* optional: adds a neat backdrop */
+  border-radius: 8px;
+}
+
+.course-card-img-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* or use 'cover' for edge-to-edge crop */
+  display: block;
 }
 
 .course-card .card-body {
-  min-height: 210px;
+  min-height: 150px;
 }
 
 .course-card .btn {

@@ -1,0 +1,30 @@
+.hero-content {
+  padding-right: 2rem;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    min-height: 300px;
+  }
+  
+  .hero-content {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}

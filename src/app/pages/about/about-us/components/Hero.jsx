@@ -29,7 +29,7 @@ const Hero = () => {
               </svg>
             </figure>
             <h1 className="position-relative fs-2">
-              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </h1>
           </Col>
         </Row>

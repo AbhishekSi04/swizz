@@ -11,8 +11,8 @@ import client9 from '@/assets/images/client/algolia.svg';
 import client10 from '@/assets/images/client/yamaha.svg';
 const Clients = () => {
   const clients = [client4, client7, client5, client1, client3, client2, client1, client8, client9, client6, client10];
-  return <section className="bg-light">
-      <Container>
+  return <section className="">
+      {/* <Container>
         <Row className="d-flex justify-content-center">
           {clients.map((client, idx) => <Col xs={6} sm={4} lg={2} key={idx}>
               <div className="p-4 grayscale text-center">
@@ -20,7 +20,7 @@ const Clients = () => {
               </div>
             </Col>)}
         </Row>
-      </Container>
+      </Container> */}
     </section>;
 };
 export default Clients;

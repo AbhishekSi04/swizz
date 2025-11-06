@@ -64,32 +64,7 @@ const Team = () => {
     }
   };
   return <section>
-      <Container>
-        <Row>
-          <Col md={4} className="mb-4 mb-md-0">
-            <h2>Awards&apos;N Stuff</h2>
-            <ul className="list-group list-group-borderless mt-4">
-              {awards.map((award, idx) => <li className="list-group-item d-flex align-items-center px-0" key={idx}>
-                  <h6 className="mb-0">{award.year}</h6>
-                  <span className="fs-6 ms-3">{award.name}</span>
-                </li>)}
-            </ul>
-          </Col>
-          <Col md={8}>
-            <div className="d-sm-flex justify-content-sm-between">
-              <h2 className="mb-0">Meet Our Team</h2>
-              <a href="#" className="btn btn-light mt-2">
-                Join Team
-              </a>
-            </div>
-            <div className="tiny-slider arrow-round arrow-creative arrow-blur arrow-hover mt-2 mt-sm-5">
-              {allTeamMembers && <TinySlider settings={courseSliderSettings}>
-                  {allTeamMembers.slice(0, 5)?.map((member, idx) => <MemberCard member={member} key={idx} />)}
-                </TinySlider>}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+
     </section>;
 };
 export default Team;

@@ -1,6 +1,6 @@
 import { developedBy, developedByLink } from '@/context/constants';
 import { Link } from 'react-router-dom';
-import logoLight from '@/assets/images/logo-light.svg';
+import logoLight from '@/assets/images/veltrixLogo.png';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
           <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
             <Link to="/">
 
-              {/* <img className="h-20px" src={logoLight} height={20} width={94} alt="logo" /> */}
+              <img className="h-20px" src={logoLight} height={20} width={94} alt="logo" />
             </Link>
           </Col>
           <Col md={4} className="mb-3 mb-md-0">

@@ -1,0 +1,260 @@
+// Theme-aware text colors for dark and light mode
+// These classes automatically adjust based on the active theme
+
+// Primary text colors
+.text-dark-mode-white {
+  color: #212529 !important;
+  
+  [data-bs-theme="dark"] & {
+    color: #ffffff !important;
+  }
+}
+
+.text-theme-body {
+  color: #212529;
+  
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+  }
+}
+
+.text-theme-muted {
+  color: #6c757d;
+  
+  [data-bs-theme="dark"] & {
+    color: #adb5bd;
+  }
+}
+
+.text-theme-secondary {
+  color: #6c757d;
+  
+  [data-bs-theme="dark"] & {
+    color: #ced4da;
+  }
+}
+
+// Heading colors
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  [data-bs-theme="dark"] & {
+    color: #ffffff;
+  }
+}
+
+// Card text
+.card {
+  [data-bs-theme="dark"] & {
+    .card-title {
+      color: #ffffff;
+    }
+    
+    .card-text {
+      color: #dee2e6;
+    }
+    
+    .text-muted {
+      color: #adb5bd !important;
+    }
+  }
+}
+
+// List items
+.list-group-item {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+  }
+}
+
+// Table text
+.table {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+    
+    th, td {
+      color: #dee2e6;
+    }
+  }
+}
+
+// Form labels
+label, .form-label {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+  }
+}
+
+// Paragraph text
+p {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+  }
+}
+
+// Lead text
+.lead {
+  [data-bs-theme="dark"] & {
+    color: #ced4da;
+  }
+}
+
+// Small text
+small, .small {
+  [data-bs-theme="dark"] & {
+    color: #adb5bd;
+  }
+}
+
+// Badge text adjustments
+.badge {
+  [data-bs-theme="dark"] & {
+    &.bg-light {
+      background-color: #495057 !important;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// Navbar text
+.navbar {
+  [data-bs-theme="dark"] & {
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff;
+      
+      &:hover {
+        color: #e0e0e0;
+      }
+    }
+  }
+}
+
+// Footer text
+footer {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff;
+    }
+    
+    a {
+      color: #adb5bd;
+      
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Breadcrumb text
+.breadcrumb-item {
+  [data-bs-theme="dark"] & {
+    color: #adb5bd;
+    
+    &.active {
+      color: #dee2e6;
+    }
+    
+    a {
+      color: #adb5bd;
+      
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Alert text
+.alert {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+  }
+}
+
+// Modal text
+.modal {
+  [data-bs-theme="dark"] & {
+    .modal-title {
+      color: #ffffff;
+    }
+    
+    .modal-body {
+      color: #dee2e6;
+    }
+  }
+}
+
+// Dropdown text
+.dropdown-menu {
+  [data-bs-theme="dark"] & {
+    .dropdown-item {
+      color: #dee2e6;
+      
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Pagination text
+.page-link {
+  [data-bs-theme="dark"] & {
+    color: #dee2e6;
+    
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+// Tab text
+.nav-tabs, .nav-pills {
+  [data-bs-theme="dark"] & {
+    .nav-link {
+      color: #adb5bd;
+      
+      &:hover {
+        color: #ffffff;
+      }
+      
+      &.active {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Accordion text
+.accordion {
+  [data-bs-theme="dark"] & {
+    .accordion-button {
+      color: #ffffff;
+      
+      &:not(.collapsed) {
+        color: #ffffff;
+      }
+    }
+    
+    .accordion-body {
+      color: #dee2e6;
+    }
+  }
+}
+
+// Course card specific
+.course-card {
+  [data-bs-theme="dark"] & {
+    .card-title {
+      color: #ffffff !important;
+    }
+    
+    .card-text,
+    li {
+      color: #dee2e6 !important;
+    }
+  }
+}

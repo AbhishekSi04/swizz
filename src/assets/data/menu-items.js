@@ -179,25 +179,13 @@ export const STUDENT_MENU_ITEMS = [{
   icon: BsBasket,
   url: '/student/course-list',
   parentKey: 'student'
-}, {
-  key: 'resume',
-  label: 'Course Resume',
-  icon: FaRegFileAlt,
-  url: '/student/course-resume',
-  parentKey: 'student'
-}, {
+},{
   key: 'quiz',
   label: 'Quiz',
   icon: BsQuestionDiamond,
   url: '/student/quiz',
   parentKey: 'student'
-}, {
-  key: 'paymentInfo',
-  label: 'Payment Info',
-  icon: BsCreditCard2Front,
-  url: '/student/payment-info',
-  parentKey: 'student'
-}, {
+},{
   key: 'wishlist',
   label: 'Wishlist',
   icon: BsCartCheck,
@@ -209,53 +197,23 @@ export const STUDENT_MENU_ITEMS = [{
   icon: BsPencilSquare,
   url: '/student/edit-profile',
   parentKey: 'student'
-}, {
-  key: 'setting',
-  label: 'Setting',
-  icon: BsGear,
-  url: '/student/setting',
-  parentKey: 'student'
-}, {
+},
+//  {
+//   key: 'setting',
+//   label: 'Setting',
+//   icon: BsGear,
+//   url: '/student/setting',
+//   parentKey: 'student'
+// }, 
+{
   key: 'delete',
   label: 'Delete Profile',
   icon: BsTrash,
   url: '/student/delete-account',
   parentKey: 'student'
 }
-// {
-//   key: 'level',
-//   label: 'Dropdown level',
-//   icon: BsLock,
-//   url: '/student/dropdown-level',
-//   parentKey: 'student',
-// },
 ];
 export const APP_MENU_ITEMS = [{
-  key: 'services',
-  label: 'Services',
-  isTitle: true,
-  children: [{
-    key: 'class-room-training',
-    label: 'Class Room Training',
-    url: '/services/class-room-training',
-    parentKey: 'services'
-  }, {
-    key: 'online-training',
-    label: 'Online Training',
-    url: '/services/online-training',
-    parentKey: 'services'
-  }, {
-    key: 'internship-program',
-    label: 'Internship Program',
-    url: '/services/internship-program',
-    parentKey: 'services'
-  }, {
-    key: 'placements',
-    label: 'Placements',
-    url: '/services/placements',
-    parentKey: 'services'
-  }]
-}, {
   key: 'accounts',
   label: 'Accounts',
   isTitle: true,

@@ -2,8 +2,8 @@ import TopNavbar from '@/components/TopNavbar';
 import { Link } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import AppMenu from '@/components/TopNavbar/components/AppMenu';
-import logo from '@/assets/images/logo.svg';
-import logoLight from '@/assets/images/logo-light.svg';
+import logo from '@/assets/images/veltrixLogo.png';
+import logoLight from '@/assets/images/veltrixLogo.png';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import { BsPower } from 'react-icons/bs';
 const TopNavigationBar = () => {

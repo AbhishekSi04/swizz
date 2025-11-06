@@ -84,10 +84,7 @@ const VerticalMenu = () => {
           <FaSignOutAlt className="fa-fw me-2" />
           Sign Out
         </Link>
-        <a className="list-group-item" onClick={toggle} data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseauthentication">
-          <BsLock className="me-2" />
-          Dropdown level
-        </a>
+        
         <Collapse in={isOpen} className="nav  flex-column" data-bs-parent="#navbar-sidebar">
           <ul>
             <li className="nav-item">

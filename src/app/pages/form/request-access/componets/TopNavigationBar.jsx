@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import logoLight from '@/assets/images/logo-light.svg';
-import logo from '@/assets/images/logo.svg';
+import logoLight from '@/assets/images/veltrixLogo.png';
+import logo from '@/assets/images/veltrixLogo.png';
 import TopNavbar from '@/components/TopNavbar';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import { Collapse, Container } from 'react-bootstrap';

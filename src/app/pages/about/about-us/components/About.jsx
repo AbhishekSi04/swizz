@@ -5,7 +5,7 @@ import { aboutData } from '../data';
 const About = () => {
   return <section className="pt-0 pt-md-5">
       <Container>
-        <Row className="mb-4">
+        <Row className="mb-4 flex justify-content-center text-center">
           <Col lg={8}>
             <h2>About VELTRIX IT SOLUTIONS PRIVATE LIMITED Portal</h2>
             <p className="mb-0">

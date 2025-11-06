@@ -45,6 +45,7 @@ const BlogGrid = lazy(() => import('@/app/pages/about/blog-grid/page'));
 const BlogMasonry = lazy(() => import('@/app/pages/about/blog-masonry/page'));
 const Pricing = lazy(() => import('@/app/pages/about/pricing/page'));
 const BlogDetail = lazy(() => import('@/app/pages/about/blog-grid/[blogId]/page'));
+const Career = lazy(() => import('@/app/pages/career/page'));
 
 //shop
 const Shop = lazy(() => import('@/app/shop/page'));
@@ -271,6 +272,10 @@ const pagesRoutes = [{
   path: '/pages/form/admission-form',
   name: 'Admission Form',
   element: <AdmissionForm />
+}, {
+  path: '/pages/career',
+  name: 'Career',
+  element: <Career />
 }];
 export const shopRoutes = [{
   path: '/shop',

@@ -14,7 +14,7 @@ const Footer = () => {
               <img className="h-40px" src={logoLight} alt="logo" />
             </Link>
             <p className="mt-3 ">
-              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </p>
             <ul className="nav justify-content-center justify-content-center text-primary-hover mt-3 mt-md-0">
               {footerLinks2.map((item, idx) => <li className="nav-item" key={idx}>

@@ -1,7 +1,7 @@
 export const currency = '$';
 export const currentYear = new Date().getFullYear();
-export const developedByLink = 'https://stackbros.com/';
-export const developedBy = 'Stackbros';
+export const developedByLink = 'https://20s Developers.com/';
+export const developedBy = '20s Developers';
 export const contactUs = 'mailto:connect.veltrixit.in';
 export const buyLink = '';
 export const basePath = '';

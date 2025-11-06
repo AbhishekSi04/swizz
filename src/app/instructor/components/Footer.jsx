@@ -1,6 +1,6 @@
 import { developedBy, developedByLink } from '@/context/constants';
 import { Link } from 'react-router-dom';
-import logoLight from '@/assets/images/logo-light.svg';
+import logoLight from '@/assets/images/veltrixLogo.png';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 const Footer = () => {

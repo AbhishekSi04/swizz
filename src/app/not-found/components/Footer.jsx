@@ -3,8 +3,8 @@ import { Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, R
 import { FaChevronUp, FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { developedByLink } from '@/context/constants';
 import clsx from 'clsx';
-import logo from '@/assets/images/logo.svg';
-import logoLight from '@/assets/images/logo-light.svg';
+import logo from '@/assets/images/veltrixLogo.png';
+import logoLight from '@/assets/images/veltrixLogo.png';
 import googlePlay from '@/assets/images/client/google-play.svg';
 import playStore from '@/assets/images/client/app-store.svg';
 import ukFlag from '@/assets/images/flags/uk.svg';
@@ -23,7 +23,7 @@ const Footer = ({
               {/* <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="logo" /> */}
             </Link>
             <p className="my-3">
-              VELTRIX IT SOLUTIONS PRIVATE LIMITED is a leading software training institute in Hyderabad offering real-world, mentor-led programs across Java Fullstack, Salesforce, DevOps, AWS, Data Science, Testing, Cybersecurity, and more. 100% placement assistance with 5000+ successful placements.
+              VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </p>
             <ul className="list-inline mb-0 mt-3">
               <li className="list-inline-item">
@@ -99,7 +99,7 @@ const Footer = ({
 
                 Copyrights ©2024 VELTRIX IT SOLUTIONS PRIVATE LIMITED. Build by
                 <Link to={developedByLink} target="_blank" className="text-body">
-                  Stackbros
+                  20s Developers
                 </Link>
               </div>
               <div className="justify-content-center mt-3 mt-lg-0">
