@@ -8,7 +8,6 @@ import logo from '@/assets/images/veltrixLogo.png';
 import logoLight from '@/assets/images/veltrixLogo.png';
 import book2 from '@/assets/images/book/02.jpg';
 import ChoicesFormInput from '@/components/form/ChoicesFormInput';
-import image from '../../../../../assets/images/'
 const TopNavigationBar = () => {
   const {
     appMenuControl
