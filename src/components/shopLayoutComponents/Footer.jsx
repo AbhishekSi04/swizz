@@ -3,8 +3,7 @@ import { Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, R
 import { FaChevronUp, FaFacebookF, FaGlobe, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { developedByLink } from '@/context/constants';
 import clsx from 'clsx';
-import logo from '@/assets/images/veltrixLogo.png';
-import logoLight from '@/assets/images/veltrixLogo.png';
+// logo served from public assets: /assets/images/veltrixLogo.png
 import googlePlay from '@/assets/images/client/google-play.svg';
 import playStore from '@/assets/images/client/app-store.svg';
 import ukFlag from '@/assets/images/flags/uk.svg';
@@ -19,8 +18,8 @@ const Footer = ({
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              {/* <img className="light-mode-item h-40px" width={189} height={40} src={logo} alt="VELTRIX IT SOLUTIONS" />
-              <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="VELTRIX IT SOLUTIONS" /> */}
+              {/* <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="VELTRIX IT SOLUTIONS" />
+              <img className="dark-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="VELTRIX IT SOLUTIONS" /> */}
             </Link>
             <p className="my-3">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support..

@@ -8,8 +8,7 @@ import googlePlay from '@/assets/images/client/google-play.svg';
 import grFlag from '@/assets/images/flags/gr.svg';
 import spFlag from '@/assets/images/flags/sp.svg';
 import ukFlag from '@/assets/images/flags/uk.svg';
-import logoLight from '@/assets/images/veltrixLogo.png';
-import logo from '@/assets/images/veltrixLogo.png';
+// logo served from public assets: /assets/images/veltrixLogo.png
 import clsx from 'clsx';
 const Footer = ({
   className
@@ -19,8 +18,8 @@ const Footer = ({
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              <img className="light-mode-item h-40px" width={189} height={40} src={logo} alt="logo" />
-              {/* <img className="dark-mode-item h-40px" width={189} height={40} src={logoLight} alt="logo" /> */}
+              <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="logo" />
+              {/* <img className="dark-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="logo" /> */}
             </Link>
             <p className="my-3">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.

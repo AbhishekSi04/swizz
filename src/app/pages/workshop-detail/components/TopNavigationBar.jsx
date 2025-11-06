@@ -2,8 +2,7 @@ import TopNavbar from '@/components/TopNavbar';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import NotificationDropdown from '@/app/demos/workshop/home/components/NotificationDropdown';
-import logoLight from '@/assets/images/veltrixLogo.png';
-import logo from '@/assets/images/veltrixLogo.png';
+// logo served from public assets: /assets/images/veltrixLogo.png
 import AppMenu from '@/components/TopNavbar/components/AppMenu';
 import ProfileDropdown from '@/components/TopNavbar/components/ProfileDropdown';
 import TopbarMenuToggler from '@/components/TopNavbar/components/TopbarMenuToggler';
@@ -15,8 +14,8 @@ const TopNavigationBar = () => {
   return <TopNavbar>
       <Container>
         <Link className="navbar-brand" to="/">
-          <img width={170} height={36} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          {/* <img width={170} height={36} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" /> */}
+          <img width={170} height={36} className="light-mode-item navbar-brand-item" src="/assets/images/veltrixLogo.png" alt="logo" />
+          <img width={170} height={36} className="dark-mode-item navbar-brand-item" src="/assets/images/veltrixLogo.png" alt="logo" />
         </Link>
         <TopbarMenuToggler />
         <AppMenu mobileMenuOpen={appMenuControl.open} startSearchInput menuClassName="ms-auto" />
