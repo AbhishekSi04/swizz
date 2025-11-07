@@ -8,8 +8,6 @@ import clsx from 'clsx';
 import { BsGear, BsInfoCircle, BsPerson, BsPower, BsSearch } from 'react-icons/bs';
 import { FaRegClock } from 'react-icons/fa';
 import avatar1 from '@/assets/images/avatar/01.jpg';
-import logo from '@/assets/images/veltrixLogo.png';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import { useAuthContext } from '@/context/useAuthContext';
 const TopNavigationBar = () => {
   const {
@@ -43,8 +41,8 @@ const TopNavigationBar = () => {
   return <TopNavbar>
       <Container>
         <Link className="navbar-brand me-0" to="/">
-          <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
         </Link>
         <button onClick={appMenuControl.toggle} className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">
           <span className="navbar-toggler-animation">

@@ -18,8 +18,8 @@ const Footer = ({
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="logo" />
-              {/* <img className="dark-mode-item h-40px" width={189} height={40} src="/assets/images/veltrixLogo.png" alt="logo" /> */}
+              <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img className="dark-mode-item h-40px" width={189} height={40} src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
             <p className="my-3">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.

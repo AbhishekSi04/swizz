@@ -3,7 +3,7 @@ const LogoBox = ({
   height,
   width
 }) => {
-  const pngPath = '/assets/images/veltrixLogo.png'; // public path to the Veltrix PNG
+  const pngPath = '/assets/images/VeltrixLogo.png'; // public path to the Veltrix PNG
   const onImgError = (e, fallback) => {
     if (e?.currentTarget) {
       e.currentTarget.onerror = null;
@@ -16,7 +16,7 @@ const LogoBox = ({
         height={height}
         width={width}
         className="light-mode-item navbar-brand-item"
-        src="/assets/images/veltrixLogo.png"
+        src="/assets/images/VeltrixLogo.png"
         alt="Veltrix IT Solutions"
         onError={(e) => onImgError(e, pngPath)}
       />
@@ -24,7 +24,7 @@ const LogoBox = ({
         height={height}
         width={width}
         className="dark-mode-item navbar-brand-item"
-        src="/assets/images/veltrixLogo.png"
+        src="/assets/images/VeltrixLogo.png"
         alt="Veltrix IT Solutions"
         onError={(e) => onImgError(e, pngPath)}
       />

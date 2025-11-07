@@ -2,8 +2,6 @@ import TopNavbar from '@/components/TopNavbar';
 import { Link } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import AppMenu from '@/components/TopNavbar/components/AppMenu';
-import logo from '@/assets/images/veltrixLogo.png';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import { BsPower } from 'react-icons/bs';
 const TopNavigationBar = () => {
@@ -13,8 +11,8 @@ const TopNavigationBar = () => {
   return <TopNavbar>
       <Container>
         <Link className="navbar-brand me-0" to="/">
-          <img height={36} width={170} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
         </Link>
         <button onClick={appMenuControl.toggle} className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">
           <span className="navbar-toggler-animation">

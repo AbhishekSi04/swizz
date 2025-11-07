@@ -1,8 +1,6 @@
 import TopNavbar from '@/components/TopNavbar';
 import { Col, Container, Dropdown, DropdownItem, DropdownToggle } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logoLight from '@/assets/images/veltrixLogo.png';
-import logo from '@/assets/images/veltrixLogo.png';
 import { FaChevronDown, FaGlobe, FaSearch, FaShoppingCart, FaSignInAlt } from 'react-icons/fa';
 import { CATEGORY_MENU_ITEMS } from '@/assets/data/menu-items';
 import grFlag from '@/assets/images/flags/gr.svg';
@@ -15,8 +13,8 @@ const TopNavigationBar = () => {
   return <TopNavbar className="navbar-transparent">
       <Container>
         <Link className="navbar-brand" to="/">
-          <img width={170} height={36} className="light-mode-item navbar-brand-item" src={logo} alt="logo" />
-          <img className="dark-mode-item navbar-brand-item" src={logoLight} alt="logo" />
+          <img width={170} height={36} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+          <img className="dark-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
         </Link>
         <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span className="me-2">

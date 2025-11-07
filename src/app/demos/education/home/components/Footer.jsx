@@ -2,7 +2,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { developedBy, developedByLink } from '@/context/constants';
 import { footerLinks2, socialMediaLinks } from '@/assets/data/footer-items';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import clsx from 'clsx';
 const Footer = () => {
   return <footer className="pt-0 bg-blue rounded-4 position-relative mx-2 mx-md-4 mb-3">
@@ -14,7 +13,7 @@ const Footer = () => {
       <Container>
         <Row className="mx-auto">
           <Col lg={6} className="mx-auto text-center my-5">
-            <img className="mx-auto h-40px" src={logoLight} alt="logo" />
+            <img className="mx-auto h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
             <p className="mt-3 text-white">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </p>

@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { BsCart2, BsSearch, BsXLg } from 'react-icons/bs';
 import { FaChevronDown, FaClock } from 'react-icons/fa';
 import { Button, Card, CardBody, CardFooter, CardHeader, Col, Collapse, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem, Row } from 'react-bootstrap';
-import logo from '@/assets/images/veltrixLogo.png';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import book2 from '@/assets/images/book/02.jpg';
 import ChoicesFormInput from '@/components/form/ChoicesFormInput';
 const TopNavigationBar = () => {
@@ -73,8 +71,8 @@ const TopNavigationBar = () => {
           </Col>
           <Col xs={6} md={4} xl={2} className="text-center d-flex">
             <Link className="navbar-brand mx-auto" to="/">
-              <img className="navbar-brand-item light-mode-item" src={logo} alt="logo" />
-              <img className="navbar-brand-item dark-mode-item" src={logoLight} alt="logo" />
+              <img className="navbar-brand-item light-mode-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img className="navbar-brand-item dark-mode-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
           </Col>
           <Col xs={3} md={4} xl={5} className="d-flex justify-content-end pe-0">

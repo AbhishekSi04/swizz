@@ -4,7 +4,6 @@ import { footerLinks, socialMediaLinks } from '@/assets/data/footer-items';
 import { FaChevronUp, FaGlobe } from 'react-icons/fa';
 import clsx from 'clsx';
 import { developedBy, developedByLink } from '@/context/constants';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import googlePlay from '@/assets/images/client/google-play.svg';
 import playStore from '@/assets/images/client/app-store.svg';
 import ukFlag from '@/assets/images/flags/uk.svg';
@@ -16,7 +15,7 @@ const Footer = () => {
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              <img width={189} height={40} className="h-40px" src={logoLight} alt="logo" />
+              <img width={189} height={40} className="h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
             <p className="my-3 text-body-secondary">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.

@@ -1,8 +1,6 @@
 import TopNavbar from '@/components/TopNavbar';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Container, Dropdown, DropdownMenu, DropdownToggle } from 'react-bootstrap';
-import logo from '@/assets/images/veltrixLogo.png';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import AppMenu from '@/components/TopNavbar/components/AppMenu';
 import { useLayoutContext } from '@/context/useLayoutContext';
 import clsx from 'clsx';
@@ -49,8 +47,8 @@ const TopNavigationBar = () => {
   return <TopNavbar className="navbar-transparent">
       <Container>
         <Link className="navbar-brand me-0" to="/">
-          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/veltrixLogo.png" alt="Veltrix IT Solutions" />
-          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src="/assets/images/veltrixLogo.png" alt="Veltrix IT Solutions" />
+          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="Veltrix IT Solutions" />
+          <img height={36} width={170} className="dark-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="Veltrix IT Solutions" />
         </Link>
         {/* Mobile: place toggler on its own row, right-aligned. Desktop: keep inline. */}
         <div className="d-xl-none d-flex w-100 justify-content-end">

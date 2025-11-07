@@ -3,8 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { developedBy, developedByLink } from '@/context/constants';
 import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import { footerItems } from '../data';
-import logoLight from '@/assets/images/veltrixLogo.png';
-import logo from '@/assets/images/veltrixLogo.png';
 import clsx from 'clsx';
 const Footer = () => {
   return <footer>
@@ -12,8 +10,8 @@ const Footer = () => {
         <Row className="g-4 justify-content-between pt-5">
           <Col md={5} lg={4}>
             <Link className="me-0" to="/">
-              <img height={40} width={189} className="light-mode-item h-40px" src={logo} alt="logo" />
-              <img height={40} width={189} className="dark-mode-item h-40px" src={logoLight} alt="logo" />
+              <img height={40} width={189} className="light-mode-item h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img height={40} width={189} className="dark-mode-item h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
             <p className="my-3">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
-import logoLight from '@/assets/images/veltrixLogo.png';
 import { developedBy, developedByLink } from '@/context/constants';
 import { footerLinks2, socialMediaLinks } from '@/assets/data/footer-items';
 import clsx from 'clsx';
