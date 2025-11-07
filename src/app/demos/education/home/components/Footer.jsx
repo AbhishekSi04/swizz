@@ -13,7 +13,7 @@ const Footer = () => {
       <Container>
         <Row className="mx-auto">
           <Col lg={6} className="mx-auto text-center my-5">
-            <img className="mx-auto h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
+            <img className="mx-auto h-40px" src="/assets/images/VeltrixLogoLight.png" alt="logo" />
             <p className="mt-3 text-white">
               VELTRIX IT SOLUTIONS is a top software training institute in Hyderabad offering industry-focused courses with 100% placement support.
             </p>

@@ -18,7 +18,7 @@ const Footer = ({
         <Row className="g-4">
           <Col lg={3}>
             <Link className="me-0" to="/">
-              <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img className="light-mode-item h-40px" width={189} height={40} src="/assets/images/VeltrixLogoLight.png" alt="logo" />
               <img className="dark-mode-item h-40px" width={189} height={40} src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
             <p className="my-3">

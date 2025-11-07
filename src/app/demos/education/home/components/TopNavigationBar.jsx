@@ -41,7 +41,7 @@ const TopNavigationBar = () => {
   return <TopNavbar>
       <Container>
         <Link className="navbar-brand me-0" to="/">
-          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+          <img height={36} width={170} className="light-mode-item navbar-brand-item" src="/assets/images/VeltrixLogoLight.png" alt="logo" />
           <img height={36} width={170} className="dark-mode-item navbar-brand-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
         </Link>
         <button onClick={appMenuControl.toggle} className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" aria-expanded={appMenuControl.open} aria-label="Toggle navigation">

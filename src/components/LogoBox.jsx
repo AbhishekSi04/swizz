@@ -3,12 +3,11 @@ const LogoBox = ({
   height,
   width
 }) => {
-  const pngPath = '/assets/images/VeltrixLogo.png'; // public path to the Veltrix PNG
+  const pngPathLight = '/assets/images/VeltrixLogoLight.png'; // public path to the Veltrix PNG for light backgrounds
+  const pngPathDark = '/assets/images/VeltrixLogo.png'; // public path to the Veltrix PNG for dark backgrounds
   const onImgError = (e, fallback) => {
-    if (e?.currentTarget) {
-      e.currentTarget.onerror = null;
-      e.currentTarget.src = fallback;
-    }
+    e.target.onerror = null;
+    e.target.src = fallback;
   };
   return (
     <Link className="navbar-brand" to="/">
@@ -16,17 +15,18 @@ const LogoBox = ({
         height={height}
         width={width}
         className="light-mode-item navbar-brand-item"
-        src="/assets/images/VeltrixLogo.png"
+        src="/assets/images/VeltrixLogoLight.png"
         alt="Veltrix IT Solutions"
-        onError={(e) => onImgError(e, pngPath)}
+        onError={(e) => onImgError(e, pngPathLight)}
       />
+
       <img
         height={height}
         width={width}
         className="dark-mode-item navbar-brand-item"
         src="/assets/images/VeltrixLogo.png"
         alt="Veltrix IT Solutions"
-        onError={(e) => onImgError(e, pngPath)}
+        onError={(e) => onImgError(e, pngPathDark)}
       />
     </Link>
   );

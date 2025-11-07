@@ -19,7 +19,7 @@ const NavbarTopbar = () => {
         <div className="d-flex align-items-center w-100">
           <div className="d-flex align-items-center d-xl-none">
             <Link className="navbar-brand" to="/">
-              <img className="light-mode-item navbar-brand-item h-30px w-auto" src="/assets/images/VeltrixLogo.png" alt="logo Mobile" />
+              <img className="light-mode-item navbar-brand-item h-30px w-auto" src="/assets/images/VeltrixLogoLight.png" alt="logo Mobile" />
               <img className="dark-mode-item navbar-brand-item h-30px w-auto" src="/assets/images/VeltrixLogo.png" alt="logo Mobile Light" />
             </Link>
           </div>

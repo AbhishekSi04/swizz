@@ -71,7 +71,7 @@ const TopNavigationBar = () => {
           </Col>
           <Col xs={6} md={4} xl={2} className="text-center d-flex">
             <Link className="navbar-brand mx-auto" to="/">
-              <img className="navbar-brand-item light-mode-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img className="navbar-brand-item light-mode-item" src="/assets/images/VeltrixLogoLight.png" alt="logo" />
               <img className="navbar-brand-item dark-mode-item" src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
           </Col>

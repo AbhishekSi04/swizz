@@ -10,7 +10,7 @@ const Footer = () => {
         <Row className="g-4 justify-content-between">
           <Col md={5} lg={4}>
             <Link className="me-0" to="/">
-              <img width={189} height={40} className="light-mode-item h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
+              <img width={189} height={40} className="light-mode-item h-40px" src="/assets/images/VeltrixLogoLight.png" alt="logo" />
               <img width={189} height={40} className="dark-mode-item h-40px" src="/assets/images/VeltrixLogo.png" alt="logo" />
             </Link>
             <p className="my-3">
